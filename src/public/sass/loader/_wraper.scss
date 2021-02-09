@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300&display=swap');
+.wrapper {
+  width: 200px;
+  height: 60px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  span {
+    position: absolute;
+    top: 75px;
+    font-family: 'Karla', sans-serif;
+    font-size: 20px;
+    letter-spacing: 12px;
+    color: #fff;
+    left: 15%;
+  }
+}
