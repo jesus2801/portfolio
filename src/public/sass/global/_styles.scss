@@ -3,4 +3,6 @@ body {
   margin: 0;
   padding: 0;
   background-color: $color1;
+  overflow-x: hidden;
+  transition: 1s ease all;
 }

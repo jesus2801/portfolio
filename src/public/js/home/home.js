@@ -36,11 +36,21 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 //----GLOBAL SCOPE----
 var playState = false;
-var audios = [new Audio('/audio/m-1.mp3'), new Audio('/audio/m-2.mp3')];
+var audios = [
+    new Audio('/audio/m-1.mp3'),
+    new Audio('/audio/m-2.mp3'),
+    new Audio('/audio/m-3.mp3'),
+    new Audio('/audio/m-4.mp3'),
+    new Audio('/audio/m-5.mp3'),
+];
+var musicPlayer = document.querySelector('.ctn-music-player');
 if (localStorage.getItem('audiosIndex') === null)
     localStorage.setItem('audiosIndex', '0');
 var audiosIndex = parseInt(localStorage.getItem('audiosIndex'));
 var audiosLength = audios.length;
+var content1 = document.querySelector('.ctn-content-1');
+var content2 = document.querySelector('.ctn-content-2');
+var content3 = document.querySelector('.ctn-content-3');
 //----GLOBAL SCOPE----
 window.addEventListener('load', function () { return removeLoader(); });
 document.addEventListener('click', clickEvents);
@@ -55,7 +65,7 @@ function clickEvents(e) {
         nextAudio();
     }
     else if (e.target.id == 'play-behind' || e.target.parentNode.id == 'play-behind') {
-        nextAudio();
+        behindAudio();
     }
 }
 function nextAudio() {
@@ -70,6 +80,7 @@ function nextAudio() {
     var playButton = document.getElementById('play');
     playButton.classList.add('active');
     playButton.querySelector('img').src = '/images/icons/play-pause.svg';
+    console.log(audiosIndex);
 }
 function behindAudio() {
     audios[audiosIndex].pause();
@@ -83,6 +94,7 @@ function behindAudio() {
     var playButton = document.getElementById('play');
     playButton.classList.add('active');
     playButton.querySelector('img').src = '/images/icons/play-pause.svg';
+    console.log(audiosIndex);
 }
 function togglePlayState(target) {
     return __awaiter(this, void 0, void 0, function () {
@@ -113,10 +125,29 @@ function togglePlayState(target) {
         });
     });
 }
+//@ts-ignore
 function removeLoader() {
     document.querySelector('.ctn-loader').classList.add('ocult');
-    document.querySelector('.ctn-music-player').classList.add('active');
+    setTimeout(function () {
+        content1.classList.add('active');
+        document.querySelector('.ctn-nav').classList.add('active');
+    }, 1900);
+    musicPlayer.classList.add('active');
+    musicPlayer.addEventListener('ended', function () { return nextAudio(); });
     var cards = document.querySelectorAll('.load-card');
     for (var i = 0; i < cards.length; i++)
         cards[i].classList.add('active');
 }
+window.addEventListener('scroll', function (e) {
+    console.log(window.scrollY);
+    if (window.scrollY >= 0 && window.scrollY <= 440) {
+        content1.classList.add('active');
+        content2.classList.remove('active');
+        content3.classList.remove('active');
+    }
+    else if (window.scrollY >= 610 && window.scrollY <= 816) {
+        content1.classList.remove('active');
+        content2.classList.add('active');
+        content3.classList.remove('active');
+    }
+});

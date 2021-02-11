@@ -3,6 +3,7 @@
 @for $i from 1 to 5 {
   .card-#{$i} {
     position: fixed;
+    top: 0;
     width: 100%;
     height: 100vh;
     z-index: 96 + $i;
@@ -15,7 +16,7 @@
   }
 }
 .card-1 {
-  background-color: $color1;
+  background-color: $color4;
 }
 .card-2 {
   background-color: $color3;
