@@ -14,9 +14,9 @@
 
   border-radius: 4px;
   background-color: #2f4053;
-  -webkit-box-shadow: 1px 1px 3px 0px rgba(36,36,36,1);
-  -moz-box-shadow: 1px 1px 3px 0px rgba(36,36,36,1);
-  box-shadow: 1px 1px 3px 0px rgba(36,36,36,1);
+  -webkit-box-shadow: 1px 1px 3px 0px rgba(51, 51, 51, 0.8);
+  -moz-box-shadow: 1px 1px 3px 0px rgba(51, 51, 51, 0.8);
+  box-shadow: 1px 1px 3px 0px rgba(51, 51, 51, 0.8);
   &.active {
     animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
     animation-duration: 1s;
@@ -35,7 +35,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    object {
+    img {
       width: 16px;
       transform: translateX(2px);
     }
@@ -48,7 +48,7 @@
     background: #2f4053;
     box-shadow: inset 5px 5px 5px #283647, inset -5px -5px 5px #364a5f;
   }
-  #play-behind object {
+  #play-behind img {
     transform: translateX(-1px);
   }
 }

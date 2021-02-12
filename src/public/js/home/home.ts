@@ -45,7 +45,7 @@ function nextAudio() {
   playState = true;
   let playButton = document.getElementById('play')!;
   playButton.classList.add('active');
-  playButton.querySelector('img')!.src = '/images/icons/play-pause.svg';
+  playButton.querySelector('img')!.src = '/images/icons/play-pause.png';
   console.log(audiosIndex);
 }
 
@@ -59,7 +59,7 @@ function behindAudio() {
   playState = true;
   let playButton = document.getElementById('play')!;
   playButton.classList.add('active');
-  playButton.querySelector('img')!.src = '/images/icons/play-pause.svg';
+  playButton.querySelector('img')!.src = '/images/icons/play-pause.png';
   console.log(audiosIndex);
 }
 
@@ -68,13 +68,13 @@ async function togglePlayState(target: HTMLDivElement) {
     audios[audiosIndex].pause();
     playState = false;
     target.classList.remove('active');
-    target.querySelector('img')!.src = '/images/icons/play-triangle.svg';
+    target.querySelector('img')!.src = '/images/icons/play-triangle.png';
   } else {
     try {
       await audios[audiosIndex].play();
       playState = true;
       target.classList.add('active');
-      target.querySelector('img')!.src = '/images/icons/play-pause.svg';
+      target.querySelector('img')!.src = '/images/icons/play-pause.png';
     } catch (e) {
       //reportar error al usuario
     }

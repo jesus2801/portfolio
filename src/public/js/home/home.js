@@ -79,7 +79,7 @@ function nextAudio() {
     playState = true;
     var playButton = document.getElementById('play');
     playButton.classList.add('active');
-    playButton.querySelector('img').src = '/images/icons/play-pause.svg';
+    playButton.querySelector('img').src = '/images/icons/play-pause.png';
     console.log(audiosIndex);
 }
 function behindAudio() {
@@ -93,7 +93,7 @@ function behindAudio() {
     playState = true;
     var playButton = document.getElementById('play');
     playButton.classList.add('active');
-    playButton.querySelector('img').src = '/images/icons/play-pause.svg';
+    playButton.querySelector('img').src = '/images/icons/play-pause.png';
     console.log(audiosIndex);
 }
 function togglePlayState(target) {
@@ -106,7 +106,7 @@ function togglePlayState(target) {
                     audios[audiosIndex].pause();
                     playState = false;
                     target.classList.remove('active');
-                    target.querySelector('img').src = '/images/icons/play-triangle.svg';
+                    target.querySelector('img').src = '/images/icons/play-triangle.png';
                     return [3 /*break*/, 4];
                 case 1:
                     _a.trys.push([1, 3, , 4]);
@@ -115,7 +115,7 @@ function togglePlayState(target) {
                     _a.sent();
                     playState = true;
                     target.classList.add('active');
-                    target.querySelector('img').src = '/images/icons/play-pause.svg';
+                    target.querySelector('img').src = '/images/icons/play-pause.png';
                     return [3 /*break*/, 4];
                 case 3:
                     e_1 = _a.sent();
