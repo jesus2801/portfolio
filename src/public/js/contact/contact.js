@@ -36,21 +36,150 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var form = document.getElementById('main-form');
 window.addEventListener('load', function () { return removeLoader(); });
+form.addEventListener('submit', validateForm);
+var Message = /** @class */ (function () {
+    function Message(name, email, phoneNumber, message) {
+        this.name = name.trim();
+        this.email = email.trim();
+        this.phoneNumber = phoneNumber.trim();
+        this.message = message.trim();
+    }
+    Message.prototype.validation = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                return [2 /*return*/, new Promise(function (resolved, reject) {
+                        if (isEmpty(_this.email) ||
+                            isEmpty(_this.name) ||
+                            isEmpty(_this.message) ||
+                            !isValidString(_this.email) ||
+                            !isValidString(_this.name) ||
+                            !isValidString(_this.message) ||
+                            !isValidString(_this.phoneNumber)) {
+                            var reply_1 = {
+                                isValid: false,
+                                message: 'Please fill in the required fields correctly and do not use illegal symbols.'
+                            };
+                            resolved(reply_1);
+                            return;
+                        }
+                        if (!isEmail(_this.email)) {
+                            var reply_2 = {
+                                isValid: false,
+                                message: 'The email entered is invalid.'
+                            };
+                            resolved(reply_2);
+                            return;
+                        }
+                        var reply = {
+                            isValid: true,
+                            message: ''
+                        };
+                        resolved(reply);
+                    })];
+            });
+        });
+    };
+    return Message;
+}());
+//--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*
+//FUNCTIONS
+//--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*
+function validateForm(e) {
+    return __awaiter(this, void 0, void 0, function () {
+        var newMessage, response, loadingPopup, formData;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    e.preventDefault();
+                    newMessage = new Message(form.name.value, form.email.value, form.phone.value, form.message.value);
+                    return [4 /*yield*/, newMessage.validation()];
+                case 1:
+                    response = _a.sent();
+                    if (!response.isValid) {
+                        //@ts-ignore
+                        Swal.fire('¡Error!', response.message, 'error');
+                        return [2 /*return*/];
+                    }
+                    loadingPopup = Swal.fire({
+                        title: "Loading",
+                        didOpen: function () {
+                            //@ts-ignore
+                            Swal.showLoading();
+                        }
+                    });
+                    formData = new FormData();
+                    formData.append('name', newMessage.name);
+                    formData.append('email', newMessage.email);
+                    formData.append('phone', newMessage.phoneNumber);
+                    formData.append('message', newMessage.message);
+                    sendForm(loadingPopup, formData);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function sendForm(loadingPopup, formData) {
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            fetch('/contact/addNewMessage', {
+                method: 'PUT',
+                //@ts-ignore
+                body: new URLSearchParams(formData)
+            })
+                .then(function (response) {
+                return response.json();
+            })
+                .then(function (data) {
+                loadingPopup.close();
+                if (!data.error) {
+                    cleanForm();
+                    //@ts-ignore
+                    Swal.fire({
+                        title: data.title,
+                        content: data.message,
+                        icon: 'success',
+                        didClose: function () {
+                            window.location.href = '/';
+                        }
+                    });
+                    return;
+                }
+                //@ts-ignore
+                Swal.fire(data.title, data.message, 'error');
+            })["catch"](function (err) {
+                loadingPopup.close();
+                //@ts-ignore
+                Swal.fire('¡Error!', 'Something has gone wrong, please try again', 'error');
+            });
+            return [2 /*return*/];
+        });
+    });
+}
 //@ts-ignore
 function removeLoader() {
     document.querySelector('.ctn-loader').classList.add('ocult');
-    setTimeout(function () {
-        document.querySelector('.ctn-nav').classList.add('active');
-        document.querySelector('.form-ctn').classList.add('active');
-        var abs = document.querySelectorAll('.abstract-image');
-        for (var i = 0, n = abs.length; i < n; i++)
-            abs[i].classList.add('active');
-    }, 1900);
+    setTimeout(activeAllElements, 1900);
     var cards = document.querySelectorAll('.load-card');
     for (var i = 0, n = cards.length; i < n; i++)
         cards[i].classList.add('active');
 }
-form.addEventListener('submit', validateAndSendForm);
+function activeAllElements() {
+    document.querySelector('.ctn-nav').classList.add('active');
+    document.querySelector('.form-ctn').classList.add('active');
+    var abs = document.querySelectorAll('.abstract-image');
+    for (var i = 0, n = abs.length; i < n; i++)
+        abs[i].classList.add('active');
+    setTimeout(function () {
+        document.querySelector('body').style.overflowY = 'auto';
+    }, 900);
+}
+function cleanForm() {
+    form.name.value = '';
+    form.email.value = '';
+    form.phone.value = '';
+    form.message.value = '';
+}
 function isEmpty(string) {
     return string === '';
 }
@@ -70,69 +199,4 @@ function isValidString(string) {
 function isEmail(email) {
     var regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     return regex.test(email);
-}
-var Message = /** @class */ (function () {
-    function Message(name, email, phoneNumber, message) {
-        this.name = name.trim();
-        this.email = email.trim();
-        this.phoneNumber = typeof phoneNumber === 'string' ? phoneNumber.trim() : null;
-        this.message = message.trim();
-    }
-    Message.prototype.validation = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            return __generator(this, function (_a) {
-                return [2 /*return*/, new Promise(function (resolved, reject) {
-                        if (isEmpty(_this.email) ||
-                            isEmpty(_this.name) ||
-                            isEmpty(_this.message) ||
-                            !isValidString(_this.email) ||
-                            !isValidString(_this.name) ||
-                            !isValidString(_this.message)) {
-                            var reply_1 = {
-                                isValid: false,
-                                message: 'Please fill in the required fields correctly and do not use illegal symbols.'
-                            };
-                            resolved(reply_1);
-                            return;
-                        }
-                        if (!isEmail(_this.email)) {
-                            var reply_2 = {
-                                isValid: false,
-                                message: 'the email entered is invalid.'
-                            };
-                            resolved(reply_2);
-                            return;
-                        }
-                        var reply = {
-                            isValid: true
-                        };
-                        resolved(reply);
-                    })];
-            });
-        });
-    };
-    return Message;
-}());
-function validateAndSendForm(e) {
-    return __awaiter(this, void 0, void 0, function () {
-        var message, response, formData;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    e.preventDefault();
-                    message = new Message(form.name.value, form.email.value, form.phone.value, form.message.value);
-                    return [4 /*yield*/, message.validation()];
-                case 1:
-                    response = _a.sent();
-                    if (!response.isValid) {
-                        console.log(response.message);
-                        return [2 /*return*/];
-                    }
-                    console.log('todo correcto !');
-                    formData = new FormData();
-                    return [2 /*return*/];
-            }
-        });
-    });
 }

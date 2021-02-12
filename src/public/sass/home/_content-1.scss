@@ -1,6 +1,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 @import '../global/variables';
 
+@mixin social-button {
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 164px;
+  max-width: 170px;
+  overflow: hidden;
+  border-radius: 3px;
+  background-color: $color2;
+  padding: 5px 13px;
+  cursor: pointer;
+  opacity: 0.68;
+  transition: all 0.4s ease;
+  &:hover {
+    opacity: 1;
+    .mainText,
+    .mainImage {
+      transform: translateX(-170px);
+    }
+    .secondtext {
+      visibility: visible;
+      transform: translateX(-5px);
+    }
+    .secondImgage {
+      visibility: visible;
+      transform: translateX(28px);
+    }
+  }
+  p {
+    margin: 0;
+    color: #fff;
+    transition: transform 350ms ease;
+  }
+  object {
+    margin-right: 10px;
+    width: 30px;
+    transition: transform 350ms ease;
+  }
+  .secondtext,
+  .secondImgage {
+    visibility: hidden;
+    position: absolute;
+    transform: translateX(90px);
+  }
+  .secondImgage {
+    width: 20px;
+  }
+}
 .ctn-content-1 {
   margin-top: 100px;
   &.active {
@@ -49,7 +99,7 @@
       justify-content: center;
       margin-right: 50px;
       opacity: 0;
-      transform: translateX(-40px);
+      transform: translateX(-40px) scale(1);
       h2 {
         font-family: 'Montserrat', sans-serif;
         color: #fff;
@@ -62,58 +112,29 @@
         background-color: #fff;
         border-radius: 100px;
       }
+      .mobil-text {
+        display: none;
+      }
       p {
         font-family: 'Comfortaa', cursive;
         color: #fff;
         font-size: 16px;
+        margin: 10px 0;
       }
-      .git-button {
+      .git-link {
+        text-decoration: none;
+      }
+      .ctn-buttons {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        width: 164px;
-        max-width: 170px;
-        overflow: hidden;
-        border-radius: 3px;
-        background-color: $color2;
-        padding: 5px 13px;
-        cursor: pointer;
-        opacity: 0.68;
-        transition: all 0.4s ease;
-        &:hover {
-          opacity: 1;
-          .mainText,
-          .mainImage {
-            transform: translateX(-170px);
-          }
-          .secondtext {
-            visibility: visible;
-            transform: translateX(-5px);
-          }
-          .secondImgage {
-            visibility: visible;
-            transform: translateX(28px);
-          }
+        .linkedin-button {
+          @include social-button();
+          margin-right: 20px;
         }
-        p {
-          margin: 0;
-          color: #fff;
-          transition: transform 350ms ease;
-        }
-        img {
-          margin-right: 10px;
-          width: 30px;
-          transition: transform 350ms ease;
-        }
-        .secondtext,
-        .secondImgage {
-          visibility: hidden;
-          position: absolute;
-          transform: translateX(90px);
-        }
-        .secondImgage {
-          width: 20px;
+        .git-button {
+          @include social-button();
         }
       }
     }
@@ -134,7 +155,7 @@
   .abs2 {
     position: absolute;
     width: 170px;
-    left: 70px;
+    left: 3vw;
     transform: translateY(-140px);
     z-index: -1;
     opacity: 0;
@@ -149,7 +170,7 @@
   }
   .keyBoard {
     position: absolute;
-    right: 15%;
+    right: 12vw;
     width: 200px;
     transform: rotate(-11deg) translateY(-30px) translateX(80px);
     z-index: -1;
@@ -157,7 +178,7 @@
   }
   .coffee {
     position: absolute;
-    left: 200px;
+    left: 12vw;
     width: 150px;
     z-index: -1;
     transform: translateX(-400px) rotate(-500deg) translateY(30px);
@@ -169,5 +190,189 @@
     left: 37%;
     transform: rotate(95deg) translateY(-40px);
     opacity: 0;
+    z-index: -1;
+  }
+}
+
+@media (max-width: 1200px) {
+  .ctn-content-1 .abs1,
+  .ctn-content-1 .abs2,
+  .ctn-content-1 .abs3,
+  .ctn-content-1 .coffee {
+    width: 140px;
+  }
+  .ctn-content-1 .keyBoard {
+    width: 180px;
+  }
+  .ctn-content-1 .mouse {
+    left: 41%;
+  }
+  .ctn-content-1 .ctn-main .ctn-title {
+    h2 {
+      font-size: 43px;
+    }
+    p {
+      font-size: 14px;
+    }
+    .git-button {
+      width: 154px;
+      max-width: 160px;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .ctn-content-1 {
+    margin-top: 170px;
+  }
+  .ctn-content-1 .abs1,
+  .ctn-content-1 .abs2,
+  .ctn-content-1 .abs3,
+  .ctn-content-1 .coffee {
+    width: 130px;
+  }
+  .ctn-content-1 .abs3 {
+    top: 100px;
+  }
+  .ctn-content-1 .mouse {
+    top: 75px;
+    left: 46%;
+  }
+  .ctn-content-1 .keyBoard {
+    width: 150px;
+  }
+  .ctn-content-1 .ctn-main .ctn-title {
+    margin-right: 20px;
+    h2 {
+      font-size: 38px;
+    }
+    p {
+      font-size: 14px;
+    }
+    .mobil-text {
+      text-align: center;
+      display: block;
+    }
+    .pc-text {
+      display: none;
+    }
+    .git-button {
+      width: 150px;
+      max-width: 156px;
+    }
+  }
+}
+
+@media (max-width: 790px) {
+  .ctn-content-1 .ctn-main .ctn-title {
+    h2 {
+      font-size: 34px;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .ctn-content-1 {
+    margin-top: 180px;
+  }
+  .ctn-content-1 .abs1,
+  .ctn-content-1 .abs2,
+  .ctn-content-1 .abs3,
+  .ctn-content-1 .coffee {
+    width: 110px;
+  }
+  .ctn-content-1 .abs3 {
+    top: 100px;
+  }
+  .ctn-content-1 .mouse {
+    width: 100px;
+  }
+  .ctn-content-1 .keyBoard {
+    width: 140px;
+  }
+  .ctn-content-1 .ctn-main .ctn-title {
+    margin-right: 10px;
+    h2 {
+      font-size: 35px;
+    }
+    .git-button {
+      width: 135px;
+      max-width: 140px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .ctn-content-1 .ctn-main .ctn-title {
+    h2 {
+      font-size: 30px;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .ctn-content-1 .abs1,
+  .ctn-content-1 .abs2,
+  .ctn-content-1 .abs3,
+  .ctn-content-1 .coffee {
+    width: 90px;
+  }
+  .ctn-content-1 .mouse {
+    top: 100px;
+    width: 85px;
+  }
+  .ctn-content-1 .keyBoard {
+    width: 125px;
+  }
+}
+
+@media (max-width: 470px) {
+  .ctn-content-1 .ctn-main .ctn-title {
+    h2 {
+      font-size: 27px;
+    }
+    .git-button {
+      width: 125px;
+      max-width: 130px;
+      object {
+        width: 23px;
+      }
+    }
+  }
+}
+
+@media (max-width: 430px) {
+  .ctn-content-1 {
+    margin-top: 130px;
+    .ctn-main {
+      .banner {
+        width: 80%;
+      }
+      flex-direction: column;
+      .ctn-title {
+        margin: 0 0 30px 0;
+      }
+    }
+  }
+  .ctn-content-1 .abs1,
+  .ctn-content-1 .abs2,
+  .ctn-content-1 .abs3,
+  .ctn-content-1 .coffee {
+    width: 85px;
+  }
+  .ctn-content-1 .abs3 {
+    top: 150px;
+    left: 15%;
+  }
+  .ctn-content-1 .abs1 {
+    left: 70%;
+    transform: translateY(-200px) !important;
+  }
+  .ctn-content-1 .mouse {
+    top: 110px;
+    left: 60%;
+  }
+  .ctn-content-1 .keyBoard {
+    width: 125px;
   }
 }

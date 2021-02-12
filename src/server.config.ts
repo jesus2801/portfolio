@@ -32,13 +32,13 @@ export class App {
   }
   middlewares() {
     this.app.use(compression());
-    this.app.use(helmet());
+    // this.app.use(helmet());
     this.app.use(express.urlencoded({extended: false}));
     this.app.use(express.json());
   }
   routes() {
     this.app.use(require(`./routes`));
-    this.app.use(require(`./routes/contact`));
+    this.app.use('/contact', require(`./routes/contact`));
   }
   extra() {
     this.app.use(express.static(path.join(__dirname, `public`)));

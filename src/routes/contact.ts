@@ -1,7 +1,8 @@
 import express from 'express';
-import { mainView } from '../controllers/contact.controller';
+import { addNewMessage, mainView } from '../controllers/contact.controller';
 const router = express.Router();
 
-router.get('/contact', mainView);
+router.get('/', mainView);
+router.put('/addNewMessage', addNewMessage);
 
 module.exports = router;
