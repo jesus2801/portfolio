@@ -1,87 +1,72 @@
-import {Request, Response} from 'express';
-import {PoolConnection} from 'mysql2/promise';
-import {connect} from '../database';
+import {Request, Response, NextFunction} from 'express';
+import {getRepository} from 'typeorm';
+import Errors from '../assets/errors';
+import Helpers from '../helpers/functions';
+import Validate from '../helpers/validateFunctions';
+import {Message} from '../entity/Message';
+import {vF, onDev} from '../config';
 
-export const mainView = (req: Request, res: Response) => {
-  try {
-    res.status(200).render('contact', {
-      title: 'JG - Contact',
-      styles: [{style: `<link rel="stylesheet" href="/styles/contact.min.css">`}],
-      scripts: [
-        {
-          script: `<script src="/librarys/package/dist/sweetalert2.all.min.js" defer></script>`,
-        },
-        {script: `<script src="/js/contact/contact.js" defer></script>`},
-      ],
-    });
-  } catch (e) {}
-};
-
-export const addNewMessage = async (req: Request, res: Response) => {
-  try {
-    const {name, email, phone, message} = req.body;
-    if (
-      isEmpty(name) ||
-      isEmpty(email) ||
-      isEmpty(message) ||
-      !isValidString(name) ||
-      !isValidString(email) ||
-      !isValidString(phone) ||
-      !isValidString(message)
-    ) {
-      res.json({
-        title: '¡Error!',
-        error: true,
-        message: `Please fill in the required fields correctly and do not use illegal symbols.`,
+export default {
+  mainView: (req: Request, res: Response, next: NextFunction) => {
+    try {
+      res.status(200).render('contact', {
+        title: 'JG - Contact',
+        styles: [
+          {
+            style: `<link rel="stylesheet" href="/styles/contact.min.css${
+              onDev ? '' : '?' + vF
+            }">`,
+          },
+        ],
+        scripts: [
+          {
+            script: `<script src="/librarys/package/dist/sweetalert2.all.min.js" defer></script>`,
+          },
+          {
+            script: `<script src="/js/dist/contact.js${
+              onDev ? '' : '?' + vF
+            }" defer></script>`,
+          },
+        ],
       });
-      return;
+    } catch (e) {
+      next(e);
     }
-    if (!isEmail(email)) {
-      res.json({
-        title: '¡Error!',
-        error: true,
-        message: `The email entered is invalid.`,
-      });
-      return;
-    }
-    const conn: PoolConnection = await connect();
-    await conn.query('INSERT INTO messages SET ?', {
-      userName: name,
-      email,
-      phoneNumber: phone,
-      message,
-    });
-    res.json({
-      title: '¡Message sent!',
-      error: false,
-      message: `your message has been sent successfully
-      `,
-    });
-  } catch (e) {
-    console.log(e);
-  }
-};
+    Helpers.registerVisit(req);
+  },
 
-//FUNCTIONS
-function isEmpty(string: string): Boolean {
-  return string.trim() === '';
-}
-function isValidString(string: string): Boolean {
-  if (
-    string.includes('|') ||
-    string.includes('}') ||
-    string.includes('{') ||
-    string.includes('$') ||
-    string.includes('%') ||
-    string.includes('`') ||
-    string.includes('<') ||
-    string.includes('>')
-  ) {
-    return false;
-  }
-  return true;
-}
-function isEmail(email: string): Boolean {
-  let regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-  return regex.test(email);
-}
+  addNewMessage: async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const {name, email, phone, message} = req.body;
+      if (
+        Validate.isEmpty(name, email, message) ||
+        !Validate.isValidString(name) ||
+        !Validate.isValidString(email) ||
+        !Validate.isValidString(message)
+      ) {
+        Helpers.sendResponse(res, '¡Error!', Errors.invalidSimbolsOrEmptyField, true);
+        return;
+      }
+
+      if (!Validate.isEmail(email)) {
+        Helpers.sendResponse(res, '¡Error!', Errors.invalidField('email'), true);
+        return;
+      }
+      const repository = getRepository(Message);
+      const newMessage = new Message();
+      newMessage.userName = name;
+      newMessage.email = email;
+      newMessage.phoneNumber = phone;
+      newMessage.message = message;
+      await repository.save(newMessage);
+      Helpers.sendResponse(
+        res,
+        '!Message sent!',
+        'Your message has been sent successfully',
+        false
+      );
+    } catch (e) {
+      next(e);
+    }
+  },
+};

@@ -1,7 +1,8 @@
+import 'reflect-metadata';
 import {App} from './server.config';
 
 //Environment Variables
-const path = require('path');
+import path from 'path';
 require('dotenv').config(path.resolve(__dirname, `../.env`));
 
 async function main(): Promise<any> {

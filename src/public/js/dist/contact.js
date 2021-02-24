@@ -122,8 +122,8 @@ function validateForm(e) {
 function sendForm(loadingPopup, formData) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            fetch('/contact/addNewMessage', {
-                method: 'PUT',
+            fetch('/contact', {
+                method: 'POST',
                 //@ts-ignore
                 body: new URLSearchParams(formData)
             })

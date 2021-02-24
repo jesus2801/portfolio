@@ -86,8 +86,8 @@ async function validateForm(e: MouseEvent) {
 }
 
 async function sendForm(loadingPopup: any, formData: FormData) {
-  fetch('/contact/addNewMessage', {
-    method: 'PUT',
+  fetch('/contact', {
+    method: 'POST',
     //@ts-ignore
     body: new URLSearchParams(formData),
   })
