@@ -10,3 +10,47 @@ body {
   background-color: #fafcff;
   overflow-x: hidden;
 }
+
+.title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 43px;
+  text-transform: uppercase;
+  color: #2d374a;
+}
+
+.button {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  padding: 6px 19px;
+  outline: none;
+  border: none;
+  border-radius: 100px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  img {
+    width: 20px;
+    margin-right: 8px;
+  }
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 600ms linear;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}

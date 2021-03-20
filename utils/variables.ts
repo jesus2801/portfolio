@@ -62,3 +62,4 @@ export const linkTags = [
 export const blue = '#3279ff';
 export const black = '#2d374a';
 export const white = '#fafcff';
+export const grey = '#4e5561';
