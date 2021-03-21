@@ -3,7 +3,7 @@ import { MouseEvent } from 'react';
 export default {
   createRipple: function (
     e: MouseEvent<HTMLButtonElement> | MouseEvent<HTMLLabelElement>
-  ) {
+  ): void {
     const button: HTMLElement = e.currentTarget;
 
     const circle: HTMLSpanElement = document.createElement('span');
@@ -25,5 +25,20 @@ export default {
     }
 
     button.appendChild(circle);
+  },
+  downloadFile: async (
+    fileUrl: string,
+    fileName: string
+  ): Promise<void> => {
+    const response: Response = await fetch(fileUrl);
+    const file: Blob = await response.blob();
+    const ref = window.URL || window.webkitURL;
+    const url = ref.createObjectURL(file);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = fileName;
+    a.click();
+    ref.revokeObjectURL(url);
   },
 };

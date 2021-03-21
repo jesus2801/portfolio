@@ -1,58 +1,45 @@
 import React, { useEffect } from 'react';
+import { NextPage } from 'next';
+
 import Styles from '../../styles/layout/home/index';
 
 import helpers from '../../functions/index';
+import { objectError } from '../../utils/variables';
+import useTyper from '../../hooks/useTyper';
 
-const Landing = () => {
-  const typerTexts = [
+import { LandingCtx } from '../../interfaces';
+
+const Landing: NextPage<LandingCtx> = ({ title }) => {
+  const typerTexts: string[] = [
     'Full Stack Web Developer',
     'Passionate about computing and robotics',
     'Backend and Frontend developer',
     'Positive person and adaptable to change',
   ];
-  let p: any;
-
-  const arrayLength = typerTexts.length - 1;
-  let arrayIndex = 0;
-
-  let i = 0;
-  let textLength = typerTexts[arrayIndex].length - 1;
-
-  const typer = () => {
-    p.innerText = '';
-
-    const interval = setInterval(() => {
-      p.innerText += typerTexts[arrayIndex][i];
-      if (i === textLength) {
-        clearInterval(interval);
-        arrayIndex = arrayLength === arrayIndex ? 0 : arrayIndex + 1;
-        i = 0;
-        textLength = typerTexts[arrayIndex].length - 1;
-        setTimeout(() => typer(), 3700);
-        return;
-      }
-      i++;
-    }, 100);
-  };
 
   useEffect(() => {
-    p = document.getElementById('typer');
+    // const p: HTMLParagraphElement = document.getElementById(
+    //   'typer'
+    // ) as HTMLParagraphElement;
+    // const typer = useTyper(typerTexts, p);
     // typer();
     const bar = document.getElementById('bar');
     setInterval(() => bar!.classList.toggle('ocult'), 300);
   });
+
   return (
     <>
       <Styles.AbsBlue1
         data="/static/abstract/abs-blue-1.svg"
         type="image/svg+xml"
+        id="start-section"
       >
-        Your browser not support objects
+        {objectError}
       </Styles.AbsBlue1>
 
       <Styles.MainZone>
         <div className="info">
-          <h1 className="title">Jesús García</h1>
+          <h1 className="title">{title}</h1>
 
           <p>
             <span id="typer"></span>
@@ -91,7 +78,7 @@ const Landing = () => {
             data="/static/images/main-image.svg"
             type="image/svg+xml"
           >
-            Your browser not support objects
+            {objectError}
           </object>
         </div>
       </Styles.MainZone>

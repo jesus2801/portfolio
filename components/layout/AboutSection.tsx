@@ -1,30 +1,21 @@
+import { NextPage } from 'next';
 import React from 'react';
 
 import helpers from '../../functions/index';
+import { AboutSectionCtx } from '../../interfaces';
 
 import Styles from '../../styles/layout/home/About';
+import { objectError } from '../../utils/variables';
 
-const AboutSection = () => {
-  const donwloadCv = async () => {
-    const response: Response = await fetch('/static/icons/github.png');
-    const file: Blob = await response.blob();
-    const ref = window.URL || window.webkitURL;
-    const url = ref.createObjectURL(file);
-
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'Jesús García CV';
-    a.click();
-    ref.revokeObjectURL(url);
-  };
-
+const AboutSection: NextPage<AboutSectionCtx> = ({ life, knowledge }) => {
   return (
     <>
       <Styles.AbsBlue2
         data="/static/abstract/abs-blue-2.svg"
         type="image/svg+xml"
+        id="about-section"
       >
-        Your browser not support objects
+        {objectError}
       </Styles.AbsBlue2>
       <Styles.MainZone>
         <div className="image">
@@ -32,7 +23,7 @@ const AboutSection = () => {
             data="/static/abstract/about-image.svg"
             type="image/svg+xml"
           >
-            Your browser not support objects
+            {objectError}
           </object>
         </div>
         <div className="content">
@@ -42,26 +33,14 @@ const AboutSection = () => {
             <p className="active">knowledge</p>
           </div>
           <p className="text">
-            <span>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Adipisci corporis nobis ipsum cupiditate, molestias
-              reprehenderit eaque quasi explicabo sint blanditiis sed quo
-              nostrum earum repellendus nemo. Doloribus suscipit facere
-              architecto.
-            </span>
-            <span>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Adipisci corporis nobis ipsum cupiditate, molestias
-              reprehenderit eaque quasi explicabo sint blanditiis sed quo
-              nostrum earum repellendus nemo. Doloribus suscipit facere
-              architecto.
-            </span>
+            <span>{life}</span>
+            <span>{knowledge}</span>
           </p>
           <button
             className="button"
             onClick={e => {
               helpers.createRipple(e);
-              donwloadCv();
+              helpers.downloadFile('/static/cv.pdf', 'Jesús García CV');
             }}
           >
             Download Cv
