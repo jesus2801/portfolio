@@ -19,4 +19,16 @@ export interface LandingCtx {
 
 export interface SkillsCtx {
   introduction: string;
+  technologiesTxt: string;
+  backendTxt: string;
+  reactTxt: string;
+}
+
+export interface IndexCtx {
+  skillsIntroduction: string;
+  lifeText: string;
+  knowledgeText: string;
+  technologiesTxt: string;
+  backendTxt: string;
+  reactTxt: string;
 }
