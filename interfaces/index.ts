@@ -41,6 +41,7 @@ export interface DatabaseCtx {
   projects: ProjectLayout[];
   loading: boolean;
   error: boolean;
+  projectSelected: null | ProjectLayout;
 }
 
 export interface AppCtx {
@@ -51,6 +52,8 @@ export interface Project {
   title: string;
   desc: string;
   image: string;
+  mainText: string;
+  videoSrc: string;
 }
 
 export interface ProjectLayout extends Project {

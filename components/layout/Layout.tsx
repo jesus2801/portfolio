@@ -4,9 +4,7 @@ import { NextPage } from 'next';
 
 import { AppCtx, LayoutContext } from '../../interfaces';
 import { createMetaTags, linkTags } from '../../utils/variables';
-import Nav from '../UI/Nav';
 import { useSelector } from 'react-redux';
-import Footer from './Footer';
 
 const Layout: NextPage<LayoutContext> = ({ children, title }) => {
   //description
@@ -31,10 +29,7 @@ const Layout: NextPage<LayoutContext> = ({ children, title }) => {
         title={title}
         link={linkTags}
       />
-      <Nav />
-      {/* <meta property="og:image" content=""/> */}
       {children}
-      <Footer />
     </>
   );
 };

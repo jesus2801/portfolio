@@ -60,53 +60,56 @@ export default {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 
-    .card-ctn {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 30px;
-
-      .card {
+    a {
+      text-decoration: none;
+      .card-ctn {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        padding: 30px;
 
-        width: 100%;
-        background-color: #fff;
-        border-radius: 5px;
-        padding: 20px;
+        .card {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
 
-        cursor: pointer;
-        transition: all 400ms ease;
-
-        -webkit-box-shadow: 1px 4px 7px 0px rgba(214, 214, 214, 1);
-        -moz-box-shadow: 1px 4px 7px 0px rgba(214, 214, 214, 1);
-        box-shadow: 1px 4px 7px 0px rgba(214, 214, 214, 1);
-
-        &:hover {
-          transform: translateY(-40px);
-          -webkit-box-shadow: 1px 5px 9px 0px rgba(201, 201, 201, 1);
-          -moz-box-shadow: 1px 5px 9px 0px rgba(201, 201, 201, 1);
-          box-shadow: 1px 5px 9px 0px rgba(201, 201, 201, 1);
-        }
-
-        object {
           width: 100%;
+          background-color: #fff;
+          border-radius: 5px;
+          padding: 20px;
+
           cursor: pointer;
-        }
+          transition: all 400ms ease;
 
-        h2 {
-          margin: 20px;
-          color: ${black};
-          font-family: 'Montserrat', sans-serif;
-          font-size: 30px;
-        }
+          -webkit-box-shadow: 1px 4px 7px 0px rgba(214, 214, 214, 1);
+          -moz-box-shadow: 1px 4px 7px 0px rgba(214, 214, 214, 1);
+          box-shadow: 1px 4px 7px 0px rgba(214, 214, 214, 1);
 
-        p {
-          color: ${grey};
-          font-size: 15px;
+          &:hover {
+            transform: translateY(-40px);
+            -webkit-box-shadow: 1px 5px 9px 0px rgba(201, 201, 201, 1);
+            -moz-box-shadow: 1px 5px 9px 0px rgba(201, 201, 201, 1);
+            box-shadow: 1px 5px 9px 0px rgba(201, 201, 201, 1);
+          }
+
+          object {
+            width: 100%;
+            cursor: pointer;
+          }
+
+          h2 {
+            margin: 20px;
+            color: ${black};
+            font-family: 'Montserrat', sans-serif;
+            font-size: 30px;
+          }
+
+          p {
+            color: ${grey};
+            font-size: 15px;
+          }
         }
       }
     }

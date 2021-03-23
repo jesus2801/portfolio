@@ -11,6 +11,8 @@ import ArrowUp from '../components/UI/ArrowUp';
 import { IndexCtx } from '../interfaces';
 import { indexPageContent } from '../utils/indexPageContent';
 import StartSection from '../components/UI/StartSection';
+import Nav from '../components/UI/Nav';
+import Footer from '../components/layout/Footer';
 
 const Index: NextPage<IndexCtx> = ({
   skillsIntroduction,
@@ -22,6 +24,7 @@ const Index: NextPage<IndexCtx> = ({
 }) => {
   return (
     <Layout title="Jesús García | Full Stack Web Developer">
+      <Nav />
       <StartSection />
 
       <Landing title="Jesús García" />
@@ -38,6 +41,8 @@ const Index: NextPage<IndexCtx> = ({
       <Projects />
 
       <ArrowUp />
+
+      <Footer />
     </Layout>
   );
 };

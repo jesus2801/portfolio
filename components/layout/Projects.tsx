@@ -5,7 +5,7 @@ import { AppCtx } from '../../interfaces';
 import { getProjects } from '../../context/actions/database.actions';
 
 import Styles from '../../styles/layout/home/Projects';
-import { objectError } from '../../utils/variables';
+import Project from '../UI/Project';
 
 const Projects = () => {
   const dispatch = useDispatch();
@@ -31,20 +31,7 @@ const Projects = () => {
         </div>
       </Styles.TitleCtn>
       {projects.map(project => (
-        <div className="card-ctn" key={project.id}>
-          <div className="card">
-            <object
-              data={`/static/laptops-preview/${project.image}`}
-              type="image/svg+xml"
-            >
-              {objectError}
-            </object>
-
-            <h2>{project.title}</h2>
-
-            <p>{project.desc}</p>
-          </div>
-        </div>
+        <Project key={project.id} project={project} />
       ))}
     </Styles.MainGrid>
   );

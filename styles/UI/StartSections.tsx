@@ -3,6 +3,56 @@ import styled from '@emotion/styled';
 import { blue, grey, black } from '../../utils/variables';
 
 export default {
+  Swetp: styled.div`
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    transform: translateX(-100%);
+    z-index: 101;
+
+    div {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      animation-duration: 900ms;
+    }
+
+    div:first-of-type {
+      background-color: ${blue};
+      animation-delay: 80ms;
+    }
+
+    div:nth-of-type(2) {
+      background-color: ${black};
+      animation-delay: 280ms;
+    }
+
+    div:nth-of-type(3) {
+      background-color: ${blue};
+      animation-delay: 480ms;
+    }
+
+    &.active {
+      div {
+        animation-name: Swept;
+      }
+    }
+
+    /* div:nth-of-type(2) {
+      background-color: ${blue};
+      animation-delay: 80ms;
+    } */
+
+    @keyframes Swept {
+      from {
+        transform: translateX(0%);
+      }
+      to {
+        transform: translateX(200%);
+      }
+    }
+  `,
   MainCtn: styled.div`
     display: flex;
     flex-direction: column;
@@ -17,30 +67,19 @@ export default {
     z-index: 99;
     opacity: 1;
     visibility: visible;
-    transition: all 900s ease;
+    transition: all 900ms ease;
 
     &.ocult {
       opacity: 0;
       visibility: hidden;
     }
 
-    .loader.active,
-    h2.active {
+    .loader.active {
       opacity: 0;
     }
 
-    .loader.ocult,
-    h2.ocult {
+    .loader.ocult {
       display: none;
-    }
-
-    h2 {
-      margin-top: 30px;
-      color: ${black};
-      font-family: 'Montserrat', sans-serif;
-      font-size: 40px;
-      opacity: 1;
-      transition: opacity 400ms ease;
     }
 
     button {
