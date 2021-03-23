@@ -14,6 +14,12 @@ export default {
       max-width: 400px;
       text-align: center;
     }
+
+    @media (max-width: 490px) {
+      p {
+        max-width: 300px;
+      }
+    }
   `,
 
   Skills: styled.div`
@@ -32,7 +38,7 @@ export default {
 
       background-color: #fff;
       border-radius: 7px;
-      height: 410px;
+      height: 450px;
 
       transition: transform 500ms ease;
 
@@ -67,6 +73,33 @@ export default {
         color: ${grey};
         font-size: 15px;
         margin-top: 13px;
+      }
+    }
+
+    @media (max-width: 1220px) {
+      grid-template-columns: repeat(2, 1fr);
+
+      div:first-of-type {
+        margin-top: 0px;
+      }
+    }
+
+    @media (max-width: 750px) {
+      grid-template-columns: 100%;
+
+      div:first-of-type,
+      div:nth-of-type(3) {
+        margin-top: 50px;
+      }
+
+      div:nth-of-type(2) {
+        grid-row-start: 1;
+        grid-row-end: 2;
+      }
+
+      div:nth-of-type(3) {
+        grid-row-start: 2;
+        grid-row-end: 3;
       }
     }
   `,

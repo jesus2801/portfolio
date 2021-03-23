@@ -38,6 +38,20 @@ export default {
         text-align: center;
       }
     }
+
+    @media (max-width: 1250px) {
+      align-items: flex-start;
+      div {
+        width: 90%;
+      }
+    }
+
+    @media (max-width: 710px) {
+      grid-column-end: 2;
+      div {
+        width: 100%;
+      }
+    }
   `,
 
   MainGrid: styled.div`
@@ -54,15 +68,55 @@ export default {
       padding: 30px;
 
       .card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
         width: 100%;
-        height: 300px;
         background-color: #fff;
         border-radius: 5px;
+        padding: 20px;
 
-        -webkit-box-shadow: 2px 5px 8px 0px rgba(212, 212, 212, 1);
-        -moz-box-shadow: 2px 5px 8px 0px rgba(212, 212, 212, 1);
-        box-shadow: 2px 5px 8px 0px rgba(212, 212, 212, 1);
+        cursor: pointer;
+        transition: all 400ms ease;
+
+        -webkit-box-shadow: 1px 4px 7px 0px rgba(214, 214, 214, 1);
+        -moz-box-shadow: 1px 4px 7px 0px rgba(214, 214, 214, 1);
+        box-shadow: 1px 4px 7px 0px rgba(214, 214, 214, 1);
+
+        &:hover {
+          transform: translateY(-40px);
+          -webkit-box-shadow: 1px 5px 9px 0px rgba(201, 201, 201, 1);
+          -moz-box-shadow: 1px 5px 9px 0px rgba(201, 201, 201, 1);
+          box-shadow: 1px 5px 9px 0px rgba(201, 201, 201, 1);
+        }
+
+        object {
+          width: 100%;
+          cursor: pointer;
+        }
+
+        h2 {
+          margin: 20px;
+          color: ${black};
+          font-family: 'Montserrat', sans-serif;
+          font-size: 30px;
+        }
+
+        p {
+          color: ${grey};
+          font-size: 15px;
+        }
       }
+    }
+
+    @media (max-width: 1250px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 710px) {
+      grid-template-columns: 100%;
     }
   `,
 };

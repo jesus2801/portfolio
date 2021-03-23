@@ -7,7 +7,8 @@ import helpers from '../../functions/index';
 import { objectError } from '../../utils/variables';
 import useTyper from '../../hooks/useTyper';
 
-import { LandingCtx } from '../../interfaces';
+import { AppCtx, LandingCtx } from '../../interfaces';
+import { useSelector } from 'react-redux';
 
 const Landing: NextPage<LandingCtx> = ({ title }) => {
   const typerTexts: string[] = [
@@ -26,6 +27,10 @@ const Landing: NextPage<LandingCtx> = ({ title }) => {
     const bar = document.getElementById('bar');
     setInterval(() => bar!.classList.toggle('ocult'), 300);
   });
+
+  const firebase = useSelector(
+    (state: AppCtx) => state.database.firebase
+  );
 
   return (
     <>
@@ -51,6 +56,7 @@ const Landing: NextPage<LandingCtx> = ({ title }) => {
               href="https://www.linkedin.com/in/jesús-david-garcía-vargas-3a5a13206"
               rel="noreferrer, no follow"
               target="_blank"
+              onClick={() => firebase.registerVisitLinkedin()}
             >
               <button className="button" onClick={helpers.createRipple}>
                 <img
@@ -64,9 +70,10 @@ const Landing: NextPage<LandingCtx> = ({ title }) => {
               href="https://github.com/jesus2801"
               rel="noreferrer, no follow"
               target="_blank"
+              onClick={() => firebase.registerVisitGithub()}
             >
               <button className="button" onClick={helpers.createRipple}>
-                <img src="/static/icons/github.png" alt="LinkedIn icon" />{' '}
+                <img src="/static/icons/github.png" alt="Github icon" />
                 Github
               </button>
             </a>

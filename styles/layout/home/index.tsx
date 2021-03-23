@@ -57,5 +57,18 @@ export default {
     object {
       max-width: 94%;
     }
+
+    @media (max-width: 870px) {
+      grid-template-columns: 100%;
+
+      .info {
+        margin-top: 90px;
+        align-items: center;
+      }
+
+      div:nth-of-type(2) {
+        grid-row: 1 / 2;
+      }
+    }
   `,
 };

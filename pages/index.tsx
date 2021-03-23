@@ -10,6 +10,7 @@ import ArrowUp from '../components/UI/ArrowUp';
 
 import { IndexCtx } from '../interfaces';
 import { indexPageContent } from '../utils/indexPageContent';
+import StartSection from '../components/UI/StartSection';
 
 const Index: NextPage<IndexCtx> = ({
   skillsIntroduction,
@@ -17,10 +18,12 @@ const Index: NextPage<IndexCtx> = ({
   knowledgeText,
   technologiesTxt,
   backendTxt,
-  reactTxt
+  reactTxt,
 }) => {
   return (
     <Layout title="Jesús García | Full Stack Web Developer">
+      <StartSection />
+
       <Landing title="Jesús García" />
 
       <AboutSection life={lifeText} knowledge={knowledgeText} />

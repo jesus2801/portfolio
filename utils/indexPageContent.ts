@@ -4,15 +4,16 @@ export const indexPageContent: IndexCtx = {
   skillsIntroduction: `A synthesis of the main knowledge that I 
     have and can contribute as a web developer.`,
 
-  lifeText: `Lorem ipsum, dolor sit amet consectetur 
-    adipisicing elit. Aliquid alias consequatur vero similique, 
-    quisquam ullam dolor dolorum saepe voluptate iure dicta porro 
-    eum doloremque quia repellendus ut molestias iusto. Reiciendis.`,
+  lifeText: `I am 16 years old, I am from Barranquilla, Colombia. 
+  I consider myself a great passionate about computers, music and robotics, 
+  I am a positive and cheerful person who likes to have fun with his friends, 
+  but at the same time I like to maintain a degree of seriousness when necessary, 
+  I love soft music and create applications with my knowledge`,
 
-  knowledgeText: `Lorem ipsum, dolor sit amet consectetur 
-    adipisicing elit. Aliquid alias consequatur vero similique, 
-    quisquam ullam dolor dolorum saepe voluptate iure dicta porro 
-    eum doloremque quia repellendus ut molestias iusto. Reiciendis.`,
+  knowledgeText: `Throughout several years I have dedicated myself to studying a lot 
+  of programming, specifically in web development, today I consider myself a 
+  Full Stack Web Developer. I have learned different technologies such as React, 
+  NextJS, Gatsby, NodeJS, Typescript, Sass, among others. I love what I do and what I program!`,
 
   technologiesTxt: `I also have a lot of knowledge of other 
     technologies such as Sass, handlebars, Testing with Supertest 

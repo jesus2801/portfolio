@@ -36,6 +36,10 @@ export const createMetaTags = (title: string, desc: string) => {
       content: title,
     },
     {
+      property: 'og:locale',
+      content: 'en_US',
+    },
+    {
       property: 'og:description',
       content: desc,
     },

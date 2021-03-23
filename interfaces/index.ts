@@ -1,3 +1,6 @@
+import { Firebase } from '../firebase';
+import firebase from 'firebase';
+
 export interface LayoutContext {
   title: string;
 }
@@ -32,3 +35,27 @@ export interface IndexCtx {
   backendTxt: string;
   reactTxt: string;
 }
+
+export interface DatabaseCtx {
+  firebase: Firebase;
+  projects: ProjectLayout[];
+  loading: boolean;
+  error: boolean;
+}
+
+export interface AppCtx {
+  database: DatabaseCtx;
+}
+
+export interface Project {
+  title: string;
+  desc: string;
+  image: string;
+}
+
+export interface ProjectLayout extends Project {
+  id: string;
+}
+
+export interface ProjectDoc
+  extends firebase.firestore.DocumentSnapshot<Project> {}

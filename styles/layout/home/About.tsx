@@ -5,13 +5,17 @@ import { black, blue, grey } from '../../../utils/variables';
 export default {
   AbsBlue2: styled.object`
     position: absolute;
-    margin-top: 130px;
+    margin-top: 50px;
     width: 450px;
     z-index: -1;
+
+    @media (max-width: 700px) {
+      width: 350px;
+    }
   `,
 
   MainZone: styled.div`
-    margin: 200px auto 0 auto;
+    margin: 180px auto 0 auto;
     width: 80%;
     display: grid;
     grid-template-columns: 40% 60%;
@@ -58,25 +62,55 @@ export default {
         width: 100%;
         display: flex;
         flex-direction: row;
-        /* align-items: center;
-        justify-content: center; */
         margin: 20px 0;
-        color: ${grey};
 
         overflow: hidden;
         position: relative;
-        span {
-          display: block;
-          width: 500px;
-          overflow: hidden;
+        p {
+          min-width: 100%;
+          color: ${grey};
+          transition: transform 400ms ease;
         }
-        span:first-of-type {
-          /* transform: translateX(-500px); */
+        &.active {
+          p {
+            transform: translateX(-100%);
+          }
         }
       }
 
       .button {
         background-color: ${blue};
+      }
+    }
+
+    @media (max-width: 1000px) {
+      margin: 240px auto 0 auto;
+      grid-template-columns: 100%;
+
+      .image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        object {
+          max-width: 70%;
+        }
+      }
+    }
+
+    @media (max-width: 860px) {
+      margin: 290px auto 0 auto;
+    }
+
+    @media (max-width: 700px) {
+      margin: 300px auto 0 auto;
+
+      .image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        object {
+          max-width: 90%;
+        }
       }
     }
   `,

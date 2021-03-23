@@ -14,7 +14,7 @@ const Nav = () => {
       <img src="/static/icons/menu.png" alt="Menu icon" />
       <p onClick={() => scrollTo('about-section')}>About</p>
       <p onClick={() => scrollTo('skills-section')}>Skills</p>
-      <p>Projects</p>
+      <p onClick={() => scrollTo('projects-section')}>Projects</p>
     </Styles.Nav>
   );
 };
