@@ -13,6 +13,7 @@ import { indexPageContent } from '../utils/indexPageContent';
 import StartSection from '../components/UI/StartSection';
 import Nav from '../components/UI/Nav';
 import Footer from '../components/layout/Footer';
+import ContactForm from '../components/layout/ContactForm';
 
 const Index: NextPage<IndexCtx> = ({
   skillsIntroduction,
@@ -39,6 +40,8 @@ const Index: NextPage<IndexCtx> = ({
       />
 
       <Projects />
+
+      <ContactForm />
 
       <ArrowUp />
 

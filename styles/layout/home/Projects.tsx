@@ -10,6 +10,7 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     div {
       width: 100%;
       height: fit-content;
@@ -30,6 +31,10 @@ export default {
         text-align: center;
         font-size: 43px;
         text-transform: uppercase;
+
+        @media (max-width: 600px) {
+          font-size: 30px;
+        }
       }
 
       p {
@@ -60,40 +65,46 @@ export default {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 
-    a {
-      text-decoration: none;
-      .card-ctn {
+    .card-ctn {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+
+      .card {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 30px;
 
-        .card {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        border-radius: 5px;
 
+        cursor: pointer;
+        will-change: auto;
+        transition: all 400ms ease;
+
+        -webkit-box-shadow: 1px 4px 7px 0px rgba(214, 214, 214, 1);
+        -moz-box-shadow: 1px 4px 7px 0px rgba(214, 214, 214, 1);
+        box-shadow: 1px 4px 7px 0px rgba(214, 214, 214, 1);
+
+        &:hover {
+          transform: translateY(-40px);
+          -webkit-box-shadow: 1px 5px 9px 0px rgba(201, 201, 201, 1);
+          -moz-box-shadow: 1px 5px 9px 0px rgba(201, 201, 201, 1);
+          box-shadow: 1px 5px 9px 0px rgba(201, 201, 201, 1);
+        }
+
+        a {
           width: 100%;
-          background-color: #fff;
-          border-radius: 5px;
+          height: 100%;
+          text-decoration: none;
           padding: 20px;
-
-          cursor: pointer;
-          transition: all 400ms ease;
-
-          -webkit-box-shadow: 1px 4px 7px 0px rgba(214, 214, 214, 1);
-          -moz-box-shadow: 1px 4px 7px 0px rgba(214, 214, 214, 1);
-          box-shadow: 1px 4px 7px 0px rgba(214, 214, 214, 1);
-
-          &:hover {
-            transform: translateY(-40px);
-            -webkit-box-shadow: 1px 5px 9px 0px rgba(201, 201, 201, 1);
-            -moz-box-shadow: 1px 5px 9px 0px rgba(201, 201, 201, 1);
-            box-shadow: 1px 5px 9px 0px rgba(201, 201, 201, 1);
-          }
-
           object {
             width: 100%;
             cursor: pointer;

@@ -4,9 +4,9 @@ import { objectError } from '../../utils/variables';
 
 const Project = ({ project }: { project: ProjectLayout }) => {
   return (
-    <a href={`/projects/${project.id}`} target="_blank">
-      <div className="card-ctn">
-        <div className="card">
+    <div className="card-ctn">
+      <div className="card">
+        <a href={`/projects/${project.id}`} target="_blank">
           <object
             data={`/static/laptops-preview/${project.image}`}
             type="image/svg+xml"
@@ -17,9 +17,9 @@ const Project = ({ project }: { project: ProjectLayout }) => {
           <h2>{project.title}</h2>
 
           <p>{project.desc}</p>
-        </div>
+        </a>
       </div>
-    </a>
+    </div>
   );
 };
 

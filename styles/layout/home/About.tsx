@@ -67,6 +67,7 @@ export default {
         overflow: hidden;
         position: relative;
         p {
+          will-change: transform;
           min-width: 100%;
           color: ${grey};
           transition: transform 400ms ease;

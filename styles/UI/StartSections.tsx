@@ -67,11 +67,15 @@ export default {
     z-index: 99;
     opacity: 1;
     visibility: visible;
+    will-change: auto;
     transition: all 900ms ease;
 
     &.ocult {
       opacity: 0;
       visibility: hidden;
+      button {
+        display: none;
+      }
     }
 
     .loader.active {
@@ -98,6 +102,7 @@ export default {
 
       opacity: 0;
       visibility: hidden;
+      will-change: auto;
       transition: all 400ms ease;
 
       &.active {

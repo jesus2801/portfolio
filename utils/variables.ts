@@ -6,6 +6,10 @@ export const createMetaTags = (title: string, desc: string) => {
       charSet: 'UTF-8',
     },
     {
+      httpEquiv: 'cache-control',
+      content: 'public, max-age=3024000',
+    },
+    {
       name: 'viewport',
       content:
         'width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1',

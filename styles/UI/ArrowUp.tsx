@@ -19,6 +19,7 @@ export default {
     cursor: pointer;
     opacity: 0;
     visibility: hidden;
+    will-change: auto;
     transition: all 400ms ease;
     transform: translateY(80px);
 

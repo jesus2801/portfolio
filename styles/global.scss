@@ -69,6 +69,7 @@ $transition-duration: 2s;
 $path-length: 157px;
 
 .loader {
+  will-change: auto;
   overflow: visible;
   width: 100px;
   height: 150px;

@@ -19,11 +19,11 @@ const Landing: NextPage<LandingCtx> = ({ title }) => {
   ];
 
   useEffect(() => {
-    const p: HTMLParagraphElement = document.getElementById(
-      'typer'
-    ) as HTMLParagraphElement;
-    const typer = useTyper(typerTexts, p);
-    typer();
+    // const p: HTMLParagraphElement = document.getElementById(
+    //   'typer'
+    // ) as HTMLParagraphElement;
+    // const typer = useTyper(typerTexts, p);
+    // typer();
     const bar = document.getElementById('bar');
     setInterval(() => bar!.classList.toggle('ocult'), 300);
   });
