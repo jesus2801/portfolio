@@ -1,4 +1,5 @@
 import { MouseEvent } from 'react';
+import Swal from 'sweetalert2';
 
 export default {
   createRipple: function (
@@ -26,6 +27,7 @@ export default {
 
     button.appendChild(circle);
   },
+
   downloadFile: async (
     fileUrl: string,
     fileName: string
@@ -40,5 +42,19 @@ export default {
     a.download = fileName;
     a.click();
     ref.revokeObjectURL(url);
+  },
+
+  handleLoading: (state: boolean) => {
+    if (state) {
+      Swal.fire({
+        title: 'Loading',
+        didOpen: () => {
+          Swal.showLoading();
+        },
+      });
+      return;
+    }
+
+    Swal.close();
   },
 };

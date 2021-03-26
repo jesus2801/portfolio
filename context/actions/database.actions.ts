@@ -5,11 +5,18 @@ import {
   INIT_GET_PROJECT,
   SUCCESS_GET_PROJECT,
   SET_PROJECT,
+  INIT_SEND_MESSAGE,
+  FAILED_SEND_MESSAGE,
+  SUCCESS_SEND_MESSAGE,
+  FAILED_GET_PROJECT,
+  FAILED_GET_PROJECTS,
 } from '../types/index';
 import { AnyAction, Dispatch } from 'redux';
 import Swal from 'sweetalert2';
 import { Firebase } from '../../firebase';
-import { ProjectLayout } from '../../interfaces';
+import { ContactState, ProjectLayout } from '../../interfaces';
+
+import helpers from '../../functions/index';
 
 export function getProjects(firebase: Firebase) {
   return async (dispatch: Dispatch) => {
@@ -29,7 +36,7 @@ export function getProjects(firebase: Firebase) {
       dispatch(successGetProjects());
       return;
     } catch (e) {
-      console.log(e);
+      dispatch(failedGetProjects());
       Swal.fire(
         'Error!',
         'Sorry, an error has occurred extracting resources from the database, please try again later.',
@@ -47,6 +54,11 @@ const initGetProjects = (): AnyAction => ({
 const successGetProjects = (): AnyAction => ({
   type: SUCCESS_GET_PROJECTS,
   payload: false,
+});
+
+const failedGetProjects = (): AnyAction => ({
+  type: FAILED_GET_PROJECTS,
+  payload: true,
 });
 
 const setProjects = (projects: ProjectLayout[]): AnyAction => ({
@@ -69,11 +81,11 @@ export function getProject(id: string, firebase: Firebase) {
         dispatch(successGetProject());
         return;
       } else {
-        dispatch(successGetProject());
+        dispatch(failedGetProject());
       }
       return;
     } catch (e) {
-      console.log(e);
+      dispatch(failedGetProject());
       Swal.fire(
         'Error!',
         'Sorry, an error has occurred extracting resources from the database, please try again later.',
@@ -93,7 +105,49 @@ const successGetProject = (): AnyAction => ({
   payload: false,
 });
 
+const failedGetProject = (): AnyAction => ({
+  type: FAILED_GET_PROJECT,
+  payload: true,
+});
+
 const setProject = (project: ProjectLayout): AnyAction => ({
   type: SET_PROJECT,
   payload: project,
+});
+
+export function sendMessage(message: ContactState, firebase: Firebase) {
+  return async (dispatch: Dispatch) => {
+    helpers.handleLoading(true);
+    dispatch(initSendMessage());
+
+    try {
+      await firebase.db.collection('messages').add(message);
+      dispatch(succesSendMessage());
+      helpers.handleLoading(false);
+      Swal.fire(
+        'Success!',
+        'your message has been sent successfully!',
+        'success'
+      );
+    } catch (e) {
+      dispatch(failedSendMessage());
+      Swal.fire(
+        'Error!',
+        'Sorry, an error has occurred, please try again later',
+        'error'
+      );
+    }
+  };
+}
+
+const initSendMessage = (): AnyAction => ({
+  type: INIT_SEND_MESSAGE,
+});
+
+const succesSendMessage = (): AnyAction => ({
+  type: SUCCESS_SEND_MESSAGE,
+});
+
+const failedSendMessage = () => ({
+  type: FAILED_SEND_MESSAGE,
 });

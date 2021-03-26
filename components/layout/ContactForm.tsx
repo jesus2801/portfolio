@@ -1,9 +1,64 @@
-import React from 'react';
+import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { objectError } from '../../utils/variables';
 
+import validate from '../../functions/validations';
+
 import Styles from '../../styles/layout/home/ContactForm';
+import Swal from 'sweetalert2';
+import { sendMessage } from '../../context/actions/database.actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppCtx, ContactState } from '../../interfaces';
 
 const ContactForm = () => {
+  const initState: ContactState = {
+    name: '',
+    mail: '',
+    message: '',
+    date: 0,
+  };
+  const [data, setData] = useState(initState);
+
+  const { name, mail, message } = data;
+
+  const dispatch = useDispatch();
+
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setData({
+      ...data,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  const firebase = useSelector(
+    (state: AppCtx) => state.database.firebase
+  );
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    setData({
+      ...data,
+      date: Date.now(),
+    });
+
+    //validar
+    if (validate.isEmpty(name, mail, message)) {
+      Swal.fire('Error!', 'Please fill in all the fields', 'error');
+      return;
+    }
+
+    if (!validate.isEmail(mail)) {
+      Swal.fire('Error!', 'Please enter a valid email', 'error');
+      return;
+    }
+
+    //pasar al context principal
+    dispatch(sendMessage(data, firebase));
+    setData(initState);
+  };
+
   return (
     <>
       <Styles.Title className="title">Contac Me</Styles.Title>
@@ -12,15 +67,27 @@ const ContactForm = () => {
           {objectError}
         </object>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="name">Name:</label>
-            <input type="text" placeholder="Enter your name" id="name" />
+            <input
+              type="text"
+              placeholder="Enter your name"
+              id="name"
+              onChange={handleChange}
+              value={name}
+            />
           </div>
 
           <div className="form-group">
             <label htmlFor="mail">Mail:</label>
-            <input type="text" placeholder="Enter your email" id="mail" />
+            <input
+              type="text"
+              placeholder="Enter your email"
+              id="mail"
+              onChange={handleChange}
+              value={mail}
+            />
           </div>
 
           <div className="form-group">
@@ -28,6 +95,8 @@ const ContactForm = () => {
             <textarea
               id="message"
               placeholder="Enter your message"
+              onChange={handleChange}
+              value={message}
             ></textarea>
           </div>
 

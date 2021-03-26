@@ -5,6 +5,11 @@ import {
   INIT_GET_PROJECT,
   SUCCESS_GET_PROJECT,
   SET_PROJECT,
+  SUCCESS_SEND_MESSAGE,
+  INIT_SEND_MESSAGE,
+  FAILED_SEND_MESSAGE,
+  FAILED_GET_PROJECT,
+  FAILED_GET_PROJECTS,
 } from '../types/index';
 import { Action } from 'redux';
 import firebase from '../../firebase/index';
@@ -32,6 +37,8 @@ const reducer = (state = initalState, action: DatabaseActions) => {
       };
     case SUCCESS_GET_PROJECTS:
     case SUCCESS_GET_PROJECT:
+    case FAILED_GET_PROJECT:
+    case FAILED_GET_PROJECTS:
       return {
         ...state,
         loading: false,
@@ -47,6 +54,10 @@ const reducer = (state = initalState, action: DatabaseActions) => {
         ...state,
         projectSelected: action.payload,
       };
+
+    case INIT_SEND_MESSAGE:
+    case SUCCESS_SEND_MESSAGE:
+    case FAILED_SEND_MESSAGE:
     default:
       return {
         ...state,
