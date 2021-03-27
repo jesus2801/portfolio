@@ -61,6 +61,10 @@ export const linkTags = [
       'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Nunito:wght@300;700&display=swap',
   },
   {
+    rel: 'canonical',
+    href: process.env.DOMAIN!,
+  },
+  {
     rel: 'shortcut icon',
     href: '/static/icons/favicon.svg',
     type: 'image/xml+svg',

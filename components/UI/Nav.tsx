@@ -15,6 +15,7 @@ const Nav = () => {
       <p onClick={() => scrollTo('about-section')}>About</p>
       <p onClick={() => scrollTo('skills-section')}>Skills</p>
       <p onClick={() => scrollTo('projects-section')}>Projects</p>
+      <p onClick={() => scrollTo('contact-section')}>Contact Me</p>
     </Styles.Nav>
   );
 };

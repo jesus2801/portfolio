@@ -24,7 +24,7 @@ const Index: NextPage<IndexCtx> = ({
   reactTxt,
 }) => {
   return (
-    <Layout title="Jesús García | Full Stack Web Developer">
+    <Layout title="Jesús García's Portfolio | Full Stack Web Developer">
       <Nav />
       <StartSection />
 

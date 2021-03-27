@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { blue, grey, black } from '../../utils/variables';
+import { blue } from '../../utils/variables';
 
 export default {
   Footer: styled.footer`
@@ -13,6 +13,7 @@ export default {
     padding: 20px;
     p {
       color: #fff;
+      text-align: center;
     }
   `,
 };

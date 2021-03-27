@@ -14,7 +14,7 @@ const Project = ({ project }: { project: ProjectLayout }) => {
             {objectError}
           </object>
 
-          <h2>{project.title}</h2>
+          <h3>{project.title}</h3>
 
           <p>{project.desc}</p>
         </a>

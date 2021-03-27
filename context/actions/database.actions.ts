@@ -23,7 +23,10 @@ export function getProjects(firebase: Firebase) {
     dispatch(initGetProjects());
 
     try {
-      const snapshot = await firebase.db.collection('projects').get();
+      const snapshot = await firebase.db
+        .collection('projects')
+        .orderBy('order', 'asc')
+        .get();
 
       const projects: any = snapshot.docs.map(doc => {
         return {

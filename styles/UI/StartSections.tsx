@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { blue, grey, black } from '../../utils/variables';
+import { blue, black } from '../../utils/variables';
 
 export default {
   Swetp: styled.div`
@@ -39,11 +39,6 @@ export default {
       }
     }
 
-    /* div:nth-of-type(2) {
-      background-color: ${blue};
-      animation-delay: 80ms;
-    } */
-
     @keyframes Swept {
       from {
         transform: translateX(0%);
@@ -53,6 +48,7 @@ export default {
       }
     }
   `,
+
   MainCtn: styled.div`
     display: flex;
     flex-direction: column;
@@ -67,7 +63,7 @@ export default {
     z-index: 99;
     opacity: 1;
     visibility: visible;
-    will-change: auto;
+    will-change: opacity;
     transition: all 900ms ease;
 
     &.ocult {
@@ -95,6 +91,7 @@ export default {
       padding: 6px 20px;
       color: ${black};
       background-color: #fafcff;
+      margin: 0;
 
       -webkit-box-shadow: 1px 3px 8px 1px rgba(219, 219, 219, 1);
       -moz-box-shadow: 1px 3px 8px 1px rgba(219, 219, 219, 1);
@@ -102,7 +99,7 @@ export default {
 
       opacity: 0;
       visibility: hidden;
-      will-change: auto;
+      will-change: opacity;
       transition: all 400ms ease;
 
       &.active {

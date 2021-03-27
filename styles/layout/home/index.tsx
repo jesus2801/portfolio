@@ -23,6 +23,10 @@ export default {
       align-items: flex-start;
       justify-content: center;
 
+      h1 {
+        margin: 0;
+      }
+
       p {
         margin: 11px 0;
         font-size: 23px;

@@ -76,6 +76,13 @@ const AboutSection: NextPage<AboutSectionCtx> = ({ life, knowledge }) => {
           </button>
         </div>
       </Styles.MainZone>
+
+      <Styles.AbsBlue3
+        data="/static/abstract/abs-blue-3.svg"
+        type="image/svg+xml"
+      >
+        {objectError}
+      </Styles.AbsBlue3>
     </>
   );
 };

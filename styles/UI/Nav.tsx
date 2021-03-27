@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { blue, grey, black } from '../../utils/variables';
+import { black } from '../../utils/variables';
 
 export default {
   Nav: styled.nav`
@@ -16,15 +16,40 @@ export default {
 
     img {
       width: 28px;
+      height: 14px;
       margin: 0 20px;
     }
 
     p {
-      margin-right: 20px;
+      margin: 0 20px 0 0;
       color: #fff;
       font-weight: 300;
       font-size: 16px;
       cursor: pointer;
+    }
+
+    @media (max-width: 420px) {
+      margin: 14px 0 0 6px;
+
+      p {
+        font-size: 15px;
+      }
+
+      img {
+        width: 24px;
+        height: 12px;
+      }
+    }
+
+    @media (max-width: 357px) {
+      p:first-of-type {
+        margin-left: 20px;
+        text-align: center;
+      }
+
+      img {
+        display: none;
+      }
     }
   `,
 };

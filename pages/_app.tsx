@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 
 import store from '../context/store';
 
+import 'normalize.css';
 import '../styles/global.scss';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {

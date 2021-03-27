@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { black, blue, grey } from '../../../utils/variables';
+import { black, blue } from '../../../utils/variables';
 
 export default {
   Title: styled.h2`
@@ -16,16 +16,23 @@ export default {
 
     width: 91%;
     max-width: 370px;
-    background-image: url('/static/abstract/blur.png');
+    background-image: url('/static/abstract/blur.webp');
     border-radius: 10px;
     margin: 20px auto;
+
+    transition: transform 300ms ease;
 
     -webkit-box-shadow: 1px 4px 9px 0px rgba(217, 217, 217, 1);
     -moz-box-shadow: 1px 4px 9px 0px rgba(217, 217, 217, 1);
     box-shadow: 1px 4px 9px 0px rgba(217, 217, 217, 1);
 
+    &:hover {
+      transform: translateY(-12px);
+    }
+
     object {
       width: 100px;
+      max-height: 110px;
       margin: 28px 0;
     }
 

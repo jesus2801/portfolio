@@ -2,13 +2,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Nunito', sans-serif;
 }
 
 body {
-  // background-color: #2d374a;
   background-color: #fafcff;
   overflow-x: hidden;
+  font-family: 'Nunito', sans-serif;
 }
 
 .title {
@@ -44,6 +43,7 @@ body {
   cursor: pointer;
   img {
     width: 20px;
+    height: 20px;
     margin-right: 8px;
   }
 }
@@ -69,14 +69,15 @@ $transition-duration: 2s;
 $path-length: 157px;
 
 .loader {
-  will-change: auto;
+  will-change: contents;
   overflow: visible;
   width: 100px;
   height: 150px;
   opacity: 1;
-  transition: all 400ms ease;
+  transition: all 460ms ease;
 
   g {
+    will-change: auto;
     animation: slide $transition-duration linear infinite;
 
     &:nth-child(2) {
@@ -91,12 +92,11 @@ $path-length: 157px;
   }
 
   path {
+    will-change: auto;
     stroke: url(#gradient);
     stroke-width: 20px;
     stroke-linecap: round;
     fill: none;
-    stroke-dasharray: 0 $path-length;
-    stroke-dashoffset: 0;
     animation: escalade $transition-duration cubic-bezier(0.8, 0, 0.2, 1)
       infinite;
   }

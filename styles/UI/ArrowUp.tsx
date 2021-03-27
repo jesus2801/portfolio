@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { blue, grey, black } from '../../utils/variables';
+import { blue } from '../../utils/variables';
 
 export default {
   Arrow: styled.div`
@@ -31,6 +31,7 @@ export default {
 
     img {
       width: 13px;
+      height: 24px;
       transform: rotate(-90deg);
     }
   `,

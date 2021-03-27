@@ -110,11 +110,12 @@ export default {
             cursor: pointer;
           }
 
-          h2 {
+          h3 {
             margin: 20px;
             color: ${black};
             font-family: 'Montserrat', sans-serif;
             font-size: 30px;
+            text-align: center;
           }
 
           p {

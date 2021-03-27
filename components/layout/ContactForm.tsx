@@ -61,9 +61,11 @@ const ContactForm = () => {
 
   return (
     <>
-      <Styles.Title className="title">Contac Me</Styles.Title>
+      <Styles.Title className="title" id="contact-section">
+        Contac Me
+      </Styles.Title>
       <Styles.Form>
-        <object data="/static/icons/profile.svg" type="">
+        <object data="/static/icons/profile.svg" type="image/svg+xml">
           {objectError}
         </object>
 

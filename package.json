@@ -1,10 +1,11 @@
 {
-  "name": "with-typescript",
+  "name": "portfolio-jesus-garcia",
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "export": "next export",
     "type-check": "tsc"
   },
   "dependencies": {
@@ -12,10 +13,11 @@
     "@emotion/core": "^11.0.0",
     "@emotion/styled": "^11.1.5",
     "@types/react-redux": "^7.1.16",
+    "detect-node": "^2.0.5",
     "firebase": "^8.3.1",
     "firebase-admin": "^9.5.0",
     "next": "latest",
-    "next-pwa": "^5.0.6",
+    "normalize.css": "^8.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
@@ -26,10 +28,12 @@
     "sweetalert2": "^10.15.6"
   },
   "devDependencies": {
+    "@types/detect-node": "^2.0.0",
     "@types/node": "^12.12.21",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
     "@types/react-helmet": "^6.1.0",
+    "next-build-id": "^3.0.0",
     "typescript": "4.0"
   },
   "license": "MIT"

@@ -14,6 +14,17 @@ export default {
     }
   `,
 
+  AbsBlue3: styled.object`
+    width: 60px;
+    position: absolute;
+    right: 50px;
+    transform: translateY(-65px);
+
+    @media (max-width: 1000px) {
+      transform: translateY(0px);
+    }
+  `,
+
   MainZone: styled.div`
     margin: 180px auto 0 auto;
     width: 80%;
@@ -67,7 +78,6 @@ export default {
         overflow: hidden;
         position: relative;
         p {
-          will-change: transform;
           min-width: 100%;
           color: ${grey};
           transition: transform 400ms ease;
