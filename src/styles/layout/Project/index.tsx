@@ -22,6 +22,26 @@ export default {
     }
   `,
 
+  DeployTxt: styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    b {
+      color: ${black};
+    }
+  `,
+
+  GitButton: styled.a`
+    margin-top: 20px;
+    text-decoration: none;
+    button {
+      background-color: ${black};
+    }
+  `,
+
   MainCtn: styled.div`
     display: flex;
     flex-direction: column;

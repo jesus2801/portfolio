@@ -55,6 +55,8 @@ export interface Project {
   mainText: string;
   videoSrc: string;
   order: number;
+  git: string;
+  deploy: string;
 }
 
 export interface ProjectLayout extends Project {
