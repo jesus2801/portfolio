@@ -66,8 +66,8 @@ export const linkTags = [
   },
   {
     rel: 'shortcut icon',
-    href: '/static/icons/favicon.svg',
-    type: 'image/xml+svg',
+    href: '/favicon.ico',
+    type: 'image/x-icon',
   },
 ];
 

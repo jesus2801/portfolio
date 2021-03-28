@@ -6,7 +6,7 @@ const Project = ({ project }: { project: ProjectLayout }) => {
   return (
     <div className="card-ctn">
       <div className="card">
-        <a href={`/projects/${project.id}`} target="_blank">
+        <a href={`/projects?id=${project.id}`} target="_blank">
           <object
             data={`/static/laptops-preview/${project.image}`}
             type="image/svg+xml"

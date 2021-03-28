@@ -54,6 +54,7 @@ export interface Project {
   image: string;
   mainText: string;
   videoSrc: string;
+  order: number;
 }
 
 export interface ProjectLayout extends Project {
