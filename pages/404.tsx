@@ -1,7 +1,7 @@
 import React from 'react';
-import Layout from '../components/layout/Layout';
+import Layout from '../src/components/layout/Layout';
 
-import Styles from '../styles/layout/NotFound';
+import Styles from '../src/styles/layout/NotFound';
 
 const NotFound = () => {
   return (

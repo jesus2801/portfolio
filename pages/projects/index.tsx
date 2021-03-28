@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import Footer from '../../components/layout/Footer';
+import Footer from '../../src/components/layout/Footer';
 
-import Styles from '../../styles/layout/Project/index';
+import Styles from '../../src/styles/layout/Project/index';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProject } from '../../context/actions/database.actions';
-import { AppCtx, ProjectLayout } from '../../interfaces';
-import { objectError } from '../../utils/variables';
+import { getProject } from '../../src/context/actions/database.actions';
+import { AppCtx, ProjectLayout } from '../../src/interfaces';
+import { objectError } from '../../src/utils/variables';
 
 const Project = () => {
   const router = useRouter();

@@ -1,19 +1,19 @@
 import React from 'react';
-import Layout from '../components/layout/Layout';
+import Layout from '../src/components/layout/Layout';
 import { NextPage } from 'next';
 
-import Landing from '../components/layout/Landing';
-import AboutSection from '../components/layout/AboutSection';
-import Skills from '../components/layout/Skills';
-import Projects from '../components/layout/Projects';
-import ArrowUp from '../components/UI/ArrowUp';
+import Landing from '../src/components/layout/Landing';
+import AboutSection from '../src/components/layout/AboutSection';
+import Skills from '../src/components/layout/Skills';
+import Projects from '../src/components/layout/Projects';
+import ArrowUp from '../src/components/UI/ArrowUp';
 
-import { IndexCtx } from '../interfaces';
-import { indexPageContent } from '../utils/indexPageContent';
-import StartSection from '../components/UI/StartSection';
-import Nav from '../components/UI/Nav';
-import Footer from '../components/layout/Footer';
-import ContactForm from '../components/layout/ContactForm';
+import { IndexCtx } from '../src/interfaces';
+import { indexPageContent } from '../src/utils/indexPageContent';
+import StartSection from '../src/components/UI/StartSection';
+import Nav from '../src/components/UI/Nav';
+import Footer from '../src/components/layout/Footer';
+import ContactForm from '../src/components/layout/ContactForm';
 
 const Index: NextPage<IndexCtx> = ({
   skillsIntroduction,
