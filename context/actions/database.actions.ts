@@ -71,6 +71,7 @@ const setProjects = (projects: ProjectLayout[]): AnyAction => ({
 
 export function getProject(id: string, firebase: Firebase) {
   return async (dispatch: Dispatch) => {
+    helpers.handleLoading(true);
     dispatch(initGetProject());
 
     try {
@@ -82,12 +83,13 @@ export function getProject(id: string, firebase: Firebase) {
       if (project.exists) {
         dispatch(setProject(project.data() as ProjectLayout));
         dispatch(successGetProject());
-        return;
       } else {
         dispatch(failedGetProject());
       }
+      helpers.handleLoading(false);
       return;
     } catch (e) {
+      helpers.handleLoading(false);
       dispatch(failedGetProject());
       Swal.fire(
         'Error!',
