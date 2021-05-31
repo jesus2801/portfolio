@@ -1,8 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import { ArrowDiv } from './ArrowUp.styles';
 
+/**
+ * Component adkf afd adf af
+ * @component
+ */
 const ArrowUp = () => {
+  const ref = useRef(null as null | HTMLDivElement);
+
+  /**
+   * adf asjdflas dfjaslfkj
+   */
   const goToTop = () => {
     document.body.scrollIntoView({
       behavior: 'smooth',
@@ -10,17 +19,20 @@ const ArrowUp = () => {
   };
 
   useEffect(() => {
-    window.onscroll = () => {
-      if (scrollY > 200) {
-        document.getElementById('arrow-up')!.classList.add('active');
-        return;
-      }
-      document.getElementById('arrow-up')!.classList.remove('active');
-    };
-  });
+    if (ref.current) {
+      window.onscroll = () => {
+        if (scrollY > 200) {
+          ref.current!.classList.add('active');
+          return;
+        }
+
+        ref.current!.classList.remove('active');
+      };
+    }
+  }, [ref]);
 
   return (
-    <ArrowDiv onClick={goToTop} id="arrow-up">
+    <ArrowDiv onClick={goToTop} ref={ref}>
       <img src="/static/icons/arrow-up.png" alt="arrow top, up" />
     </ArrowDiv>
   );

@@ -1,7 +1,7 @@
 export const createMetaTags = (title: string, desc: string) => {
   return metas(desc, title).concat(
     ogMetas(title, desc) as any,
-    twitterMetas(title, desc) as any
+    twitterMetas(title, desc) as any,
   );
 };
 
@@ -17,8 +17,7 @@ const metas = (desc: string, title: string) => [
   },
   {
     name: 'viewport',
-    content:
-      'width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1',
+    content: 'width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1',
   },
   {
     name: 'description',

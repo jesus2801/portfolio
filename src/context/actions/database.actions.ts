@@ -19,19 +19,16 @@ import { ContactState, ProjectLayout } from '@interfaces';
 
 import { Firebase } from '@firebase';
 
-import helpers from '@functions';
+import { handleLoading } from '@functions';
 
 export function getProjects(firebase: Firebase) {
   return async (dispatch: Dispatch) => {
     dispatch(initGetProjects());
 
     try {
-      const snapshot = await firebase.db
-        .collection('projects')
-        .orderBy('order', 'asc')
-        .get();
+      const snapshot = await firebase.db.collection('projects').orderBy('order', 'asc').get();
 
-      const projects: any = snapshot.docs.map(doc => {
+      const projects: any = snapshot.docs.map((doc) => {
         return {
           id: doc.id,
           ...doc.data(),
@@ -46,7 +43,7 @@ export function getProjects(firebase: Firebase) {
       Swal.fire(
         'Error!',
         'Sorry, an error has occurred extracting resources from the database, please try again later.',
-        'error'
+        'error',
       );
     }
   };
@@ -74,14 +71,11 @@ const setProjects = (projects: ProjectLayout[]): AnyAction => ({
 
 export function getProject(id: string, firebase: Firebase) {
   return async (dispatch: Dispatch) => {
-    helpers.handleLoading(true);
+    handleLoading(true);
     dispatch(initGetProject());
 
     try {
-      const project = await firebase.db
-        .collection('projects')
-        .doc(id)
-        .get();
+      const project = await firebase.db.collection('projects').doc(id).get();
 
       if (project.exists) {
         dispatch(setProject(project.data() as ProjectLayout));
@@ -89,15 +83,15 @@ export function getProject(id: string, firebase: Firebase) {
       } else {
         dispatch(failedGetProject());
       }
-      helpers.handleLoading(false);
+      handleLoading(false);
       return;
     } catch (e) {
-      helpers.handleLoading(false);
+      handleLoading(false);
       dispatch(failedGetProject());
       Swal.fire(
         'Error!',
         'Sorry, an error has occurred extracting resources from the database, please try again later.',
-        'error'
+        'error',
       );
     }
   };
@@ -125,25 +119,18 @@ const setProject = (project: ProjectLayout): AnyAction => ({
 
 export function sendMessage(message: ContactState, firebase: Firebase) {
   return async (dispatch: Dispatch) => {
-    helpers.handleLoading(true);
+    handleLoading(true);
     dispatch(initSendMessage());
 
     try {
       await firebase.db.collection('messages').add(message);
+
       dispatch(succesSendMessage());
-      helpers.handleLoading(false);
-      Swal.fire(
-        'Success!',
-        'your message has been sent successfully!',
-        'success'
-      );
+      handleLoading(false);
+      Swal.fire('Success!', 'your message has been sent successfully!', 'success');
     } catch (e) {
       dispatch(failedSendMessage());
-      Swal.fire(
-        'Error!',
-        'Sorry, an error has occurred, please try again later',
-        'error'
-      );
+      Swal.fire('Error!', 'Sorry, an error has occurred, please try again later', 'error');
     }
   };
 }

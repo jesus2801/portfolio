@@ -1,0 +1,27 @@
+{
+  "tags": {
+    "allowUnknownTags": ["optional", "category", "component"]
+  },
+  "source": {
+    "include": ["./src"],
+    "includePattern": "\\.(ts|tsx)$",
+    "exclude": ["node_modules/|docs|dist|coverage|@types|__test__"],
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "plugins": [
+    "node_modules/better-docs/typescript",
+    "node_modules/better-docs/component",
+    "node_modules/better-docs/category"
+  ],
+  "templates": {
+    "better-docs": {
+      "name": "Jesús García's Portfolio"
+    }
+  },
+  "opts": {
+    "template": "node_modules/better-docs",
+    "destination": "./docs",
+    "recurse": true,
+    "readme": "./README.md"
+  }
+}

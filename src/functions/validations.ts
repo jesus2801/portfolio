@@ -1,8 +1,9 @@
-const regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+const regex =
+  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
 export default {
   isEmpty: (...strings: string[]): boolean => {
-    return strings.some(str => str.trim() === '');
+    return strings.some((str) => str.trim() === '');
   },
 
   isEmail: (mail: string): boolean => {

@@ -1,15 +1,10 @@
-import { NextPage } from 'next';
 import React from 'react';
 
-import { SkillsCardCtx } from '@interfaces';
+import { SkillsCardProps } from '@interfaces/props';
 
 import { objectError } from '@utils/variables';
 
-const SkillsCard: NextPage<SkillsCardCtx> = ({
-  image,
-  title,
-  description,
-}) => {
+const SkillsCard = ({ image, title, description }: SkillsCardProps) => {
   return (
     <div>
       <object data={image} type="image/svg+xml">

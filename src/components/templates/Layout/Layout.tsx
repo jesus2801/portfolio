@@ -1,23 +1,21 @@
 import { useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import { NextPage } from 'next';
 
-import { AppCtx, LayoutContext } from '@interfaces';
+import { LayoutProps } from '@interfaces/props';
+import { AppCtx } from '@interfaces';
 
 import { createMetaTags } from '@utils/metaTags';
 
 import { linkTags } from '@utils/variables';
 
-const Layout: NextPage<LayoutContext> = ({ children, title }) => {
+const Layout = ({ children, title }: LayoutProps) => {
   //description
   const desc: string = `Full stack web developer portfolio by Jesús García, 
   application development, programming, React, Next JS, Gatsby, libraries 
   and frameworks`;
 
-  const firebase = useSelector(
-    (state: AppCtx) => state.database.firebase
-  );
+  const firebase = useSelector((state: AppCtx) => state.database.firebase);
 
   useEffect(() => {
     firebase.registerVisit(window.location.href);

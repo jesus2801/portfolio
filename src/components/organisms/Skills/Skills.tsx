@@ -1,18 +1,12 @@
-import { NextPage } from 'next';
 import React from 'react';
 
 import SkillsCard from '@components/molecules/SkillsCard/SkillsCard';
 
-import { SkillsCtx } from '@interfaces';
+import { SkillsProps } from '@interfaces/props';
 
 import { SkillsDiv, Title } from './Skills.styles';
 
-const Skills: NextPage<SkillsCtx> = ({
-  introduction,
-  technologiesTxt,
-  backendTxt,
-  reactTxt,
-}) => {
+const Skills = ({ introduction, technologiesTxt, backendTxt, reactTxt }: SkillsProps) => {
   return (
     <>
       <Title id="skills-section">

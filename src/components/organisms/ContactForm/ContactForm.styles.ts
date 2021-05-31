@@ -80,7 +80,6 @@ export const FormDiv = styled.div`
         padding: 5px;
         font-size: 16px;
         color: var(--black);
-        will-change: auto;
         transition: border-bottom 300ms ease;
 
         &:focus {

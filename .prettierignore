@@ -1,0 +1,8 @@
+public
+node_modules
+.next
+.firebase
+.env.development
+.env.production
+firebase.json
+next-env.d.ts

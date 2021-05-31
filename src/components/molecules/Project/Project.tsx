@@ -1,20 +1,17 @@
 import React from 'react';
 
-import { ProjectLayout } from '@interfaces';
+import { ProjectProps } from '@interfaces/props';
 
 import { objectError } from '@utils/variables';
 
 import { ProjectDiv } from './Project.styles';
 
-const Project = ({ project }: { project: ProjectLayout }) => {
+const Project = ({ project }: ProjectProps) => {
   return (
     <ProjectDiv>
       <div className="card">
         <a href={`/projects?id=${project.id}`} target="_blank">
-          <object
-            data={`/static/laptops-preview/${project.image}`}
-            type="image/svg+xml"
-          >
+          <object data={`/static/laptops-preview/${project.image}`} type="image/svg+xml">
             {objectError}
           </object>
 

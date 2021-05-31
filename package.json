@@ -5,7 +5,10 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "export": "next export"
+    "export": "next export",
+    "indent": "prettier --write .",
+    "docs": "jsdoc -c jsdoc.json",
+    "nose": "SET NODE_ENV=development parcel build docs/entry.js --out-dir docs/build"
   },
   "dependencies": {
     "@emotion/babel-preset-css-prop": "^11.2.0",
@@ -15,7 +18,6 @@
     "detect-node": "^2.0.5",
     "express": "^4.17.1",
     "firebase": "^8.3.1",
-    "firebase-admin": "^9.5.0",
     "next": "latest",
     "normalize.css": "^8.0.1",
     "react": "^17.0.1",
@@ -34,7 +36,11 @@
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
     "@types/react-helmet": "^6.1.0",
+    "better-docs": "^2.3.2",
+    "jsdoc": "^3.6.7",
     "next-build-id": "^3.0.0",
+    "parcel-bundler": "^1.12.5",
+    "prettier": "^2.3.0",
     "ts-node": "^9.1.1",
     "typescript": "4.0"
   },

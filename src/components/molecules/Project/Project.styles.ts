@@ -21,7 +21,6 @@ export const ProjectDiv = styled.div`
     border-radius: 5px;
 
     cursor: pointer;
-    will-change: auto;
     transition: all 400ms ease;
 
     -webkit-box-shadow: 1px 4px 7px 0px rgba(214, 214, 214, 1);

@@ -10,9 +10,7 @@ import { MainCtn } from './StartSection.styles';
 const StartSection = () => {
   const [start, setStart] = useState(false);
 
-  const isLoading = useSelector(
-    (state: AppCtx) => state.database.loading
-  );
+  const isLoading = useSelector((state: AppCtx) => state.database.loading);
 
   useEffect(() => {
     if (!isLoading) {
@@ -35,13 +33,7 @@ const StartSection = () => {
             <path d="M 50,75 A 1,1 0 0 0 50,-25" />
           </g>
           <defs>
-            <linearGradient
-              id="gradient"
-              x1="0%"
-              y1="0%"
-              x2="0%"
-              y2="100%"
-            >
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop
                 offset="0%"
                 style={{
@@ -70,6 +62,7 @@ const StartSection = () => {
           Let's Start!
         </button>
       </MainCtn>
+
       <Swept start={start} />
     </>
   );

@@ -11,7 +11,7 @@ import { AppCtx, ProjectLayout } from '@interfaces';
 
 import { objectError } from '@utils/variables';
 
-import helpers from '@functions/index';
+import { createRipple } from '@functions/index';
 
 import {
   MainCtn,
@@ -33,7 +33,7 @@ const Project = () => {
   const dispatch = useDispatch();
 
   const { firebase, loading, projectSelected } = useSelector(
-    (state: AppCtx) => state.database
+    (state: AppCtx) => state.database,
   );
 
   useEffect(() => {
@@ -74,11 +74,7 @@ const Project = () => {
               <DeployTxt className="deploy">
                 <b>Deploy:</b>
                 {` `}
-                <a
-                  href={project.deploy}
-                  rel="noreferrer, no follow"
-                  target="_blank"
-                >
+                <a href={project.deploy} rel="noreferrer, no follow" target="_blank">
                   {project.deploy}
                 </a>
               </DeployTxt>
@@ -89,7 +85,7 @@ const Project = () => {
               target="_blank"
               onClick={() => firebase.registerVisitGithub()}
             >
-              <button className="button" onClick={helpers.createRipple}>
+              <button className="button" onClick={createRipple}>
                 <img src="/static/icons/github.png" alt="Github icon" />
                 Github
               </button>

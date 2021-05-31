@@ -1,46 +1,39 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import { NextPage } from 'next';
 
-import { AppCtx, LandingCtx } from '@interfaces';
+import { LandingProps } from '@interfaces/props';
+import { AppCtx } from '@interfaces';
 
 import { objectError } from '@utils/variables';
 
-import helpers from '@functions/index';
+import { createRipple } from '@functions/index';
 
 import useTyper from '@hooks/useTyper';
 
 import { AbsBlue1, MainZone } from './Landing.styles';
 
-const Landing: NextPage<LandingCtx> = ({ title }) => {
-  const typerTexts: string[] = [
-    'Full Stack Web Developer',
-    'Passionate about computing and robotics',
-    'Backend and Frontend developer',
-    'Positive person and adaptable to change',
-  ];
+const typerTexts: string[] = [
+  'Full Stack Web Developer',
+  'Passionate about computing and robotics',
+  'Backend and Frontend developer',
+  'Cross-platform software developer',
+];
+
+const Landing = ({ title }: LandingProps) => {
+  const typerRef = useRef(null as null | HTMLSpanElement);
+  const barRef = useRef(null as null | HTMLSpanElement);
 
   useEffect(() => {
-    // const p: HTMLParagraphElement = document.getElementById(
-    //   'typer'
-    // ) as HTMLParagraphElement;
-    // const typer = useTyper(typerTexts, p);
-    // typer();
-    // const bar = document.getElementById('bar');
-    // setInterval(() => bar!.classList.toggle('ocult'), 300);
-  });
+    if (typerRef.current && barRef.current) {
+      useTyper(typerTexts, typerRef.current, barRef.current);
+    }
+  }, [typerRef, barRef]);
 
-  const firebase = useSelector(
-    (state: AppCtx) => state.database.firebase
-  );
+  const firebase = useSelector((state: AppCtx) => state.database.firebase);
 
   return (
     <>
-      <AbsBlue1
-        data="/static/abstract/abs-blue-1.svg"
-        type="image/svg+xml"
-        id="start-section"
-      >
+      <AbsBlue1 data="/static/abstract/abs-blue-1.svg" type="image/svg+xml" id="start-section">
         {objectError}
       </AbsBlue1>
 
@@ -49,8 +42,8 @@ const Landing: NextPage<LandingCtx> = ({ title }) => {
           <h1 className="title">{title}</h1>
 
           <p>
-            <span id="typer"></span>
-            <span id="bar">|</span>
+            <span ref={typerRef}></span>
+            <span ref={barRef}>|</span>
           </p>
 
           <div className="buttons">
@@ -60,11 +53,8 @@ const Landing: NextPage<LandingCtx> = ({ title }) => {
               target="_blank"
               onClick={() => firebase.registerVisitLinkedin()}
             >
-              <button className="button" onClick={helpers.createRipple}>
-                <img
-                  src="/static/icons/linkedin.png"
-                  alt="LinkedIn icon"
-                />
+              <button className="button" onClick={createRipple}>
+                <img src="/static/icons/linkedin.png" alt="LinkedIn icon" />
                 LinkedIn
               </button>
             </a>
@@ -74,7 +64,7 @@ const Landing: NextPage<LandingCtx> = ({ title }) => {
               target="_blank"
               onClick={() => firebase.registerVisitGithub()}
             >
-              <button className="button" onClick={helpers.createRipple}>
+              <button className="button" onClick={createRipple}>
                 <img src="/static/icons/github.png" alt="Github icon" />
                 Github
               </button>
@@ -83,10 +73,7 @@ const Landing: NextPage<LandingCtx> = ({ title }) => {
         </div>
 
         <div>
-          <object
-            data="/static/images/main-image.svg"
-            type="image/svg+xml"
-          >
+          <object data="/static/images/main-image.svg" type="image/svg+xml">
             {objectError}
           </object>
         </div>

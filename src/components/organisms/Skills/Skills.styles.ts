@@ -37,7 +37,6 @@ export const SkillsDiv = styled.div`
     border-radius: 7px;
     height: 450px;
 
-    will-change: transform;
     transition: transform 500ms ease;
 
     -webkit-box-shadow: 1px 4.5px 8px 0px rgba(209, 209, 209, 1);

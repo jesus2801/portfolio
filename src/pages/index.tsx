@@ -1,7 +1,6 @@
 import { NextPage } from 'next';
 import React from 'react';
 
-
 import StartSection from '@components/organisms/StartSection/StartSection';
 import AboutSection from '@components/organisms/AboutSection/AboutSection';
 import ContactForm from '@components/organisms/ContactForm/ContactForm';

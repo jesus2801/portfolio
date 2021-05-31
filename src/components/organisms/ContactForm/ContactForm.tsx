@@ -4,47 +4,33 @@ import Swal from 'sweetalert2';
 
 import { sendMessage } from '@context/actions/database.actions';
 
-import { AppCtx, ContactState } from '@interfaces';
+import { initContactState } from '@utils/states';
 
 import { objectError } from '@utils/variables';
 
 import validate from '@functions/validations';
 
+import { AppCtx } from '@interfaces';
+
 import { FormDiv, Title } from './ContactForm.styles';
 
 const ContactForm = () => {
-  const initState: ContactState = {
-    name: '',
-    mail: '',
-    message: '',
-    date: 0,
-  };
-  const [data, setData] = useState(initState);
-
+  const [data, setData] = useState(initContactState);
   const { name, mail, message } = data;
 
   const dispatch = useDispatch();
 
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setData({
       ...data,
       [e.target.id]: e.target.value,
     });
   };
 
-  const firebase = useSelector(
-    (state: AppCtx) => state.database.firebase
-  );
+  const firebase = useSelector((state: AppCtx) => state.database.firebase);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    setData({
-      ...data,
-      date: Date.now(),
-    });
 
     //validar
     if (validate.isEmpty(name, mail, message)) {
@@ -58,14 +44,14 @@ const ContactForm = () => {
     }
 
     //pasar al context principal
-    dispatch(sendMessage(data, firebase));
-    setData(initState);
+    dispatch(sendMessage({ ...data, date: Date.now() }, firebase));
+    setData(initContactState);
   };
 
   return (
     <>
       <Title className="title" id="contact-section">
-        Contac Me
+        Contact Me
       </Title>
       <FormDiv>
         <object data="/static/icons/profile.svg" type="image/svg+xml">

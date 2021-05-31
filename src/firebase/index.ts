@@ -16,6 +16,7 @@ export class Firebase {
       app.initializeApp(config);
       if (!isNode) this.analytics = app.analytics();
     }
+
     this.db = app.firestore();
   }
 

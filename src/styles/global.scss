@@ -103,8 +103,7 @@ $path-length: 157px;
     stroke-width: 20px;
     stroke-linecap: round;
     fill: none;
-    animation: escalade $transition-duration cubic-bezier(0.8, 0, 0.2, 1)
-      infinite;
+    animation: escalade $transition-duration cubic-bezier(0.8, 0, 0.2, 1) infinite;
   }
 }
 

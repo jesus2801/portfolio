@@ -12,13 +12,9 @@ import { MainGrid, TitleCtn } from './Projects.styles';
 const Projects = () => {
   const dispatch = useDispatch();
 
-  const projects = useSelector(
-    (state: AppCtx) => state.database.projects
-  );
+  const projects = useSelector((state: AppCtx) => state.database.projects);
 
-  const firebase = useSelector(
-    (state: AppCtx) => state.database.firebase
-  );
+  const firebase = useSelector((state: AppCtx) => state.database.firebase);
 
   useEffect(() => {
     dispatch(getProjects(firebase));
@@ -33,7 +29,7 @@ const Projects = () => {
         </div>
       </TitleCtn>
 
-      {projects.map(project => (
+      {projects.map((project) => (
         <Project key={project.id} project={project} />
       ))}
     </MainGrid>
