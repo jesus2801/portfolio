@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { blue } from '../../utils/variables';
 
 export default {
   MainDiv: styled.div`
@@ -15,7 +14,7 @@ export default {
       width: 2px;
       height: 30px;
       border-radius: 100px;
-      background-color: ${blue};
+      background-color: var(--blue);
       margin: 0 20px;
     }
 

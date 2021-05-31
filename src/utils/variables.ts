@@ -5,8 +5,7 @@ export const linkTags = [
   },
   {
     rel: 'stylesheet',
-    href:
-      'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Nunito:wght@300;700&display=swap',
+    href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Nunito:wght@300;700&display=swap',
   },
   {
     rel: 'canonical',
@@ -18,10 +17,5 @@ export const linkTags = [
     type: 'image/x-icon',
   },
 ];
-
-export const blue = '#3279ff';
-export const black = '#2d374a';
-export const white = '#fafcff';
-export const grey = '#4e5561';
 
 export const objectError = 'Your browser not support objects';

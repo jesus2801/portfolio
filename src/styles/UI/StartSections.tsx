@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 
-import { blue, black } from '../../utils/variables';
-
 export default {
   Swetp: styled.div`
     position: fixed;
@@ -19,17 +17,17 @@ export default {
     }
 
     div:first-of-type {
-      background-color: ${blue};
+      background-color: var(--blue);
       animation-delay: 80ms;
     }
 
     div:nth-of-type(2) {
-      background-color: ${black};
+      background-color: var(--black);
       animation-delay: 280ms;
     }
 
     div:nth-of-type(3) {
-      background-color: ${blue};
+      background-color: var(--blue);
       animation-delay: 480ms;
     }
 
@@ -89,7 +87,7 @@ export default {
       border-radius: 5px;
       outline: none;
       padding: 6px 20px;
-      color: ${black};
+      color: var(--black);
       background-color: #fafcff;
       margin: 0;
 

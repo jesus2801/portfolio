@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 
-import { black, grey } from '../../../utils/variables';
-
 export default {
   Title: styled.div`
     margin: 150px auto 0 auto;
@@ -10,7 +8,7 @@ export default {
       text-align: center;
     }
     p {
-      color: ${grey};
+      color: var(--grey);
       max-width: 400px;
       text-align: center;
     }
@@ -63,7 +61,7 @@ export default {
 
       h3 {
         margin-top: 20px;
-        color: ${black};
+        color: var(--black);
         font-family: 'Montserrat', sans-serif;
         font-weight: 600;
         font-size: 25px;
@@ -72,7 +70,7 @@ export default {
       }
 
       p {
-        color: ${grey};
+        color: var(--grey);
         font-size: 15px;
         margin-top: 13px;
       }

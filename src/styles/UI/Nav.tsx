@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 
-import { black } from '../../utils/variables';
-
 export default {
   Nav: styled.nav`
     width: fit-content;
@@ -11,7 +9,7 @@ export default {
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    background-color: ${black};
+    background-color: var(--black);
     padding: 6px 0;
 
     img {

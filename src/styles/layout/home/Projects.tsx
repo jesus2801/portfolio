@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 
-import { black, blue, grey } from '../../../utils/variables';
-
 export default {
   TitleCtn: styled.div`
     grid-column-start: 1;
@@ -20,7 +18,7 @@ export default {
       justify-content: center;
 
       padding: 10px;
-      background-color: ${blue};
+      background-color: var(--blue);
       border-bottom-right-radius: 100px;
       border-top-right-radius: 100px;
 
@@ -112,14 +110,14 @@ export default {
 
           h3 {
             margin: 20px;
-            color: ${black};
+            color: var(--black);
             font-family: 'Montserrat', sans-serif;
             font-size: 30px;
             text-align: center;
           }
 
           p {
-            color: ${grey};
+            color: var(--grey);
             font-size: 15px;
           }
         }

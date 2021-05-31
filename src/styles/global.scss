@@ -10,6 +10,13 @@ body {
   font-family: 'Nunito', sans-serif;
 }
 
+:root {
+  --blue: #3279ff;
+  --black: #2d374a;
+  --white: #fafcff;
+  --grey: #4e5561;
+}
+
 .title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
@@ -64,7 +71,6 @@ body {
 }
 
 //LOADER:
-
 $transition-duration: 2s;
 $path-length: 157px;
 

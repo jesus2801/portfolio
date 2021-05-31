@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 
-import { black, blue, grey } from '../../../utils/variables';
-
 export default {
   AbsBlue2: styled.object`
     position: absolute;
@@ -53,7 +51,7 @@ export default {
         p {
           position: relative;
           font-size: 17px;
-          color: ${black};
+          color: var(--black);
           &:first-of-type {
             margin-right: 26px;
           }
@@ -64,7 +62,7 @@ export default {
             width: 100%;
             height: 3px;
             border-radius: 100px;
-            background-color: ${blue};
+            background-color: var(--blue);
           }
         }
       }
@@ -79,7 +77,7 @@ export default {
         position: relative;
         p {
           min-width: 100%;
-          color: ${grey};
+          color: var(--grey);
           transition: transform 400ms ease;
         }
         &.active {
@@ -90,7 +88,7 @@ export default {
       }
 
       .button {
-        background-color: ${blue};
+        background-color: var(--blue);
       }
     }
 

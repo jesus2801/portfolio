@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 
-import { black, blue } from '../../../utils/variables';
-
 export default {
   AbsBlue1: styled.object`
     position: absolute;
@@ -30,7 +28,7 @@ export default {
       p {
         margin: 11px 0;
         font-size: 23px;
-        color: ${black};
+        color: var(--black);
         min-height: 30px;
         span.ocult {
           opacity: 0;
@@ -45,13 +43,13 @@ export default {
           &:first-of-type {
             margin-right: 10px;
             button {
-              background-color: ${blue};
+              background-color: var(--blue);
             }
           }
 
           &:nth-of-type(2) {
             button {
-              background-color: ${black};
+              background-color: var(--black);
             }
           }
         }

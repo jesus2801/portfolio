@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 
-import { black, blue, grey } from '../../../utils/variables';
-
 export default {
   Ribbon: styled.object`
     width: 65px;
@@ -30,7 +28,7 @@ export default {
     justify-content: flex-start;
 
     b {
-      color: ${black};
+      color: var(--black);
     }
   `,
 
@@ -38,7 +36,7 @@ export default {
     margin-top: 20px;
     text-decoration: none;
     button {
-      background-color: ${black};
+      background-color: var(--black);
     }
   `,
 
@@ -73,7 +71,7 @@ export default {
   `,
 
   Text: styled.p`
-    color: ${grey};
+    color: var(--grey);
     width: 100%;
     margin: 30px 0;
     font-size: 17px;
@@ -85,7 +83,7 @@ export default {
     font-family: 'Montserrat', sans-serif;
     font-size: 43px;
     text-align: center;
-    color: ${black};
+    color: var(--black);
     margin-top: 40px;
 
     &::after {
@@ -94,7 +92,7 @@ export default {
       width: 50%;
       height: 8px;
       border-radius: 100px;
-      background-color: ${blue};
+      background-color: var(--blue);
       margin-top: 3px;
     }
   `,

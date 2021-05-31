@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 
-import { blue } from '../../utils/variables';
-
 export default {
   Arrow: styled.div`
     display: flex;
@@ -15,7 +13,7 @@ export default {
 
     bottom: 20px;
     right: 35px;
-    background-color: ${blue};
+    background-color: var(--blue);
     cursor: pointer;
     opacity: 0;
     visibility: hidden;

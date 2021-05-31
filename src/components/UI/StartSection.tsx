@@ -4,7 +4,6 @@ import { AppCtx } from '../../interfaces';
 
 import Styles from '../../styles/UI/StartSections';
 
-import { blue, black } from '../../utils/variables';
 import Swept from './Swept';
 
 const StartSection = () => {
@@ -45,14 +44,14 @@ const StartSection = () => {
               <stop
                 offset="0%"
                 style={{
-                  stopColor: `${blue}`,
+                  stopColor: `var(--blue)`,
                   stopOpacity: 1,
                 }}
               />
               <stop
                 offset="100%"
                 style={{
-                  stopColor: `${black}`,
+                  stopColor: `var(--black)`,
                   stopOpacity: 1,
                 }}
               />

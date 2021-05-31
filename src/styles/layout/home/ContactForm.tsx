@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 
-import { black, blue } from '../../../utils/variables';
-
 export default {
   Title: styled.h2`
     margin-top: 20px;
@@ -50,7 +48,7 @@ export default {
         width: 100%;
         padding: 4px 14px;
         border-radius: 2px;
-        background-color: ${blue};
+        background-color: var(--blue);
 
         border: none;
         outline: none;
@@ -70,7 +68,7 @@ export default {
 
         label {
           font-size: 14px;
-          color: ${black};
+          color: var(--black);
         }
 
         input,
@@ -82,12 +80,12 @@ export default {
           border-bottom: 1px solid #d4d4d4;
           padding: 5px;
           font-size: 16px;
-          color: ${black};
+          color: var(--black);
           will-change: auto;
           transition: border-bottom 300ms ease;
 
           &:focus {
-            border-bottom: 1px solid ${blue};
+            border-bottom: 1px solid var(--blue);
           }
         }
 
