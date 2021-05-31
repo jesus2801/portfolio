@@ -1,12 +1,15 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
-import { objectError } from '../../../utils/variables';
-
-import validate from '../../../functions/validations';
-
-import Swal from 'sweetalert2';
-import { sendMessage } from '../../../context/actions/database.actions';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppCtx, ContactState } from '../../../interfaces';
+import Swal from 'sweetalert2';
+
+import { sendMessage } from '@context/actions/database.actions';
+
+import { AppCtx, ContactState } from '@interfaces';
+
+import { objectError } from '@utils/variables';
+
+import validate from '@functions/validations';
+
 import { FormDiv, Title } from './ContactForm.styles';
 
 const ContactForm = () => {

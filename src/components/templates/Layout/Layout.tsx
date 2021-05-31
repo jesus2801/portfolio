@@ -1,11 +1,13 @@
+import { useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { NextPage } from 'next';
 
-import { AppCtx, LayoutContext } from '../../../interfaces';
-import { linkTags } from '../../../utils/variables';
-import { useSelector } from 'react-redux';
-import { createMetaTags } from '../../../utils/metaTags';
+import { AppCtx, LayoutContext } from '@interfaces';
+
+import { createMetaTags } from '@utils/metaTags';
+
+import { linkTags } from '@utils/variables';
 
 const Layout: NextPage<LayoutContext> = ({ children, title }) => {
   //description

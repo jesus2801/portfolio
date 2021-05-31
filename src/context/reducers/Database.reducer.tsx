@@ -1,3 +1,5 @@
+import { Action } from 'redux';
+
 import {
   INIT_GET_PROJECTS,
   SUCCESS_GET_PROJECTS,
@@ -10,10 +12,11 @@ import {
   FAILED_SEND_MESSAGE,
   FAILED_GET_PROJECT,
   FAILED_GET_PROJECTS,
-} from '../types/index';
-import { Action } from 'redux';
-import firebase from '../../firebase/index';
-import { DatabaseCtx } from '../../interfaces';
+} from '@context/types/index';
+
+import { DatabaseCtx } from '@interfaces';
+
+import firebase from '@firebase';
 
 const initalState: DatabaseCtx = {
   firebase,

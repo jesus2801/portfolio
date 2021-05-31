@@ -1,12 +1,14 @@
+import { useSelector } from 'react-redux';
 import { NextPage } from 'next';
 import React from 'react';
-import { useSelector } from 'react-redux';
 
-import helpers from '../../../functions/index';
-import { AboutSectionCtx, AppCtx } from '../../../interfaces';
+import helpers from '@functions/index';
+
+import { AboutSectionCtx, AppCtx } from '@interfaces';
+
+import { objectError } from '@utils/variables';
 
 import { AbsBlue2, AbsBlue3, MainZone } from './AboutSection.styles';
-import { objectError } from '../../../utils/variables';
 
 const AboutSection: NextPage<AboutSectionCtx> = ({ life, knowledge }) => {
   const changeSection = (state: boolean) => {

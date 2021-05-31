@@ -1,5 +1,5 @@
-import app from 'firebase/app';
 import isNode from 'detect-node';
+import app from 'firebase/app';
 
 import config from './config';
 

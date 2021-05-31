@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { AppCtx } from '../../../interfaces';
 
-import Swept from '../../atoms/Swept/Swept';
+import Swept from '@components/atoms/Swept/Swept';
+
+import { AppCtx } from '@interfaces';
+
 import { MainCtn } from './StartSection.styles';
 
 const StartSection = () => {

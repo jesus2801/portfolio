@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Swetp } from './Swept.styles';
 
 const Swept = ({ start }: { start: boolean }) => {

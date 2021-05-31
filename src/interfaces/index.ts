@@ -1,5 +1,6 @@
-import { Firebase } from '../firebase';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+
+import { Firebase } from '@firebase';
 
 export interface LayoutContext {
   title: string;

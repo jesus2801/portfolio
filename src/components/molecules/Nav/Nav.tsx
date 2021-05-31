@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { NavDiv } from './Nav.styles';
 
 const Nav = () => {

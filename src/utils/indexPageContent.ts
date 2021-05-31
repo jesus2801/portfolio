@@ -1,4 +1,4 @@
-import { IndexCtx } from '../interfaces';
+import { IndexCtx } from '@interfaces';
 
 export const indexPageContent: IndexCtx = {
   skillsIntroduction: `A synthesis of the main knowledge that I 

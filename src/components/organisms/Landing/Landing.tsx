@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { NextPage } from 'next';
 
-import helpers from '../../../functions/index';
-import { objectError } from '../../../utils/variables';
-import useTyper from '../../../hooks/useTyper';
+import { AppCtx, LandingCtx } from '@interfaces';
 
-import { AppCtx, LandingCtx } from '../../../interfaces';
-import { useSelector } from 'react-redux';
+import { objectError } from '@utils/variables';
+
+import helpers from '@functions/index';
+
+import useTyper from '@hooks/useTyper';
 
 import { AbsBlue1, MainZone } from './Landing.styles';
 

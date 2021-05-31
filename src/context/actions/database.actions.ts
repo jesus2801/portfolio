@@ -1,3 +1,6 @@
+import { AnyAction, Dispatch } from 'redux';
+import Swal from 'sweetalert2';
+
 import {
   INIT_GET_PROJECTS,
   SUCCESS_GET_PROJECTS,
@@ -10,13 +13,13 @@ import {
   SUCCESS_SEND_MESSAGE,
   FAILED_GET_PROJECT,
   FAILED_GET_PROJECTS,
-} from '../types/index';
-import { AnyAction, Dispatch } from 'redux';
-import Swal from 'sweetalert2';
-import { Firebase } from '../../firebase';
-import { ContactState, ProjectLayout } from '../../interfaces';
+} from '@context/types';
 
-import helpers from '../../functions/index';
+import { ContactState, ProjectLayout } from '@interfaces';
+
+import { Firebase } from '@firebase';
+
+import helpers from '@functions';
 
 export function getProjects(firebase: Firebase) {
   return async (dispatch: Dispatch) => {

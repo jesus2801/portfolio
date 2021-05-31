@@ -1,8 +1,9 @@
 import { NextPage } from 'next';
 import React from 'react';
 
-import { SkillsCardCtx } from '../../../interfaces';
-import { objectError } from '../../../utils/variables';
+import { SkillsCardCtx } from '@interfaces';
+
+import { objectError } from '@utils/variables';
 
 const SkillsCard: NextPage<SkillsCardCtx> = ({
   image,

@@ -1,7 +1,8 @@
 import React from 'react';
-import Layout from '../components/templates/Layout/Layout';
 
-import { MainDiv } from '../styles/NotFound';
+import Layout from '@components/templates/Layout/Layout';
+
+import { MainDiv } from '@styles/NotFound';
 
 const NotFound = () => {
   return (

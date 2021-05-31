@@ -1,9 +1,18 @@
+import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { useDispatch, useSelector } from 'react-redux';
 
-import Footer from '../../components/molecules/Footer/Footer';
-import Layout from '../../components/templates/Layout/Layout';
+import { getProject } from '@context/actions/database.actions';
+
+import Footer from '@components/molecules/Footer/Footer';
+import Layout from '@components/templates/Layout/Layout';
+
+import { AppCtx, ProjectLayout } from '@interfaces';
+
+import { objectError } from '@utils/variables';
+
+import helpers from '@functions/index';
+
 import {
   MainCtn,
   Ribbon,
@@ -12,13 +21,7 @@ import {
   DeployTxt,
   GitButton,
   YoutubeVideo,
-} from '../../styles/index';
-
-import helpers from '../../functions/index';
-
-import { getProject } from '../../context/actions/database.actions';
-import { AppCtx, ProjectLayout } from '../../interfaces';
-import { objectError } from '../../utils/variables';
+} from '@styles/index';
 
 const Project = () => {
   const router = useRouter();

@@ -1,6 +1,9 @@
 import React from 'react';
-import { ProjectLayout } from '../../../interfaces';
-import { objectError } from '../../../utils/variables';
+
+import { ProjectLayout } from '@interfaces';
+
+import { objectError } from '@utils/variables';
+
 import { ProjectDiv } from './Project.styles';
 
 const Project = ({ project }: { project: ProjectLayout }) => {

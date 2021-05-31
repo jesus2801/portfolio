@@ -1,9 +1,10 @@
 import { NextPage } from 'next';
 import React from 'react';
 
-import { SkillsCtx } from '../../../interfaces';
+import SkillsCard from '@components/molecules/SkillsCard/SkillsCard';
 
-import SkillsCard from '../../molecules/SkillsCard/SkillsCard';
+import { SkillsCtx } from '@interfaces';
+
 import { SkillsDiv, Title } from './Skills.styles';
 
 const Skills: NextPage<SkillsCtx> = ({
