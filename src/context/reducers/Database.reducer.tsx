@@ -12,11 +12,13 @@ import {
   FAILED_SEND_MESSAGE,
   FAILED_GET_PROJECT,
   FAILED_GET_PROJECTS,
+  SET_SELECTED_LNG,
 } from '@context/types/index';
 
 import { DatabaseCtx } from '@interfaces';
 
 import firebase from '@firebase';
+import defaultLng from '../../locales/en/translation.json';
 
 const initalState: DatabaseCtx = {
   firebase,
@@ -24,13 +26,14 @@ const initalState: DatabaseCtx = {
   projectSelected: null,
   loading: true,
   error: false,
+  lng: defaultLng,
 };
 
 interface DatabaseActions extends Action {
   payload: any;
 }
 
-const reducer = (state = initalState, action: DatabaseActions) => {
+const reducer = (state = initalState, action: DatabaseActions): DatabaseCtx => {
   switch (action.type) {
     case INIT_GET_PROJECTS:
     case INIT_GET_PROJECT:
@@ -56,6 +59,12 @@ const reducer = (state = initalState, action: DatabaseActions) => {
       return {
         ...state,
         projectSelected: action.payload,
+      };
+
+    case SET_SELECTED_LNG:
+      return {
+        ...state,
+        lng: action.payload,
       };
 
     case INIT_SEND_MESSAGE:

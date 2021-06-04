@@ -1,4 +1,3 @@
-import { NextPage } from 'next';
 import React from 'react';
 
 import StartSection from '@components/organisms/StartSection/StartSection';
@@ -11,34 +10,24 @@ import Footer from '@components/molecules/Footer/Footer';
 import Layout from '@components/templates/Layout/Layout';
 import ArrowUp from '@components/atoms/ArrowUp/ArrowUp';
 import Nav from '@components/molecules/Nav/Nav';
+import { useSelector } from 'react-redux';
+import { AppCtx } from '@interfaces/index';
+import Flags from '@components/atoms/Flags/Flags';
 
-import { indexPageContent } from '@utils/indexPageContent';
+const Index = () => {
+  const { lng } = useSelector((state: AppCtx) => state.database);
 
-import { IndexCtx } from '@interfaces';
-
-const Index: NextPage<IndexCtx> = ({
-  skillsIntroduction,
-  lifeText,
-  knowledgeText,
-  technologiesTxt,
-  backendTxt,
-  reactTxt,
-}) => {
   return (
     <Layout title="Jesús García's Portfolio | Full Stack Web Developer">
+      <Flags />
       <Nav />
       <StartSection />
 
       <Landing title="Jesús García" />
 
-      <AboutSection life={lifeText} knowledge={knowledgeText} />
+      <AboutSection life={lng['lifeText']} knowledge={lng['knowledgeText']} />
 
-      <Skills
-        introduction={skillsIntroduction}
-        technologiesTxt={technologiesTxt}
-        backendTxt={backendTxt}
-        reactTxt={reactTxt}
-      />
+      <Skills />
 
       <Projects />
 
@@ -50,7 +39,5 @@ const Index: NextPage<IndexCtx> = ({
     </Layout>
   );
 };
-
-Index.getInitialProps = async () => indexPageContent;
 
 export default Index;

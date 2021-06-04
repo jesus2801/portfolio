@@ -28,7 +28,7 @@ const AboutSection = ({ life, knowledge }: AboutSectionProps) => {
     }
   };
 
-  const { firebase } = useSelector((state: AppCtx) => state.database);
+  const { firebase, lng } = useSelector((state: AppCtx) => state.database);
 
   const handleCvDonwload = (e: MouseEvent<HTMLButtonElement>) => {
     createRipple(e);
@@ -49,13 +49,13 @@ const AboutSection = ({ life, knowledge }: AboutSectionProps) => {
           </object>
         </div>
         <div className="content">
-          <h2 className="title">About Me</h2>
+          <h2 className="title">{lng['about']}</h2>
           <div className="menu">
             <p onClick={() => changeSection(false)} ref={lifeMenuRef}>
-              Life
+              {lng['life']}
             </p>
             <p className="active" onClick={() => changeSection(true)} ref={knowledgeMenuRef}>
-              knowledge
+              {lng['knowledge']}
             </p>
           </div>
           <div className="text active" ref={aboutTextRef}>
@@ -63,7 +63,7 @@ const AboutSection = ({ life, knowledge }: AboutSectionProps) => {
             <p>{knowledge}</p>
           </div>
           <button className="button" onClick={handleCvDonwload}>
-            Download Cv
+            {lng['download']} Cv
           </button>
         </div>
       </MainZone>

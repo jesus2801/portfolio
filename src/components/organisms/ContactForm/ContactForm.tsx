@@ -27,7 +27,7 @@ const ContactForm = () => {
     });
   };
 
-  const firebase = useSelector((state: AppCtx) => state.database.firebase);
+  const { firebase, lng } = useSelector((state: AppCtx) => state.database);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -51,7 +51,7 @@ const ContactForm = () => {
   return (
     <>
       <Title className="title" id="contact-section">
-        Contact Me
+        {lng['contactMe']}
       </Title>
       <FormDiv>
         <object data="/static/icons/profile.svg" type="image/svg+xml">
@@ -60,10 +60,10 @@ const ContactForm = () => {
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="name">Name:</label>
+            <label htmlFor="name">{lng['name']}:</label>
             <input
               type="text"
-              placeholder="Enter your name"
+              placeholder={`${lng['enterYour']} ${lng['name']}`}
               id="name"
               onChange={handleChange}
               value={name}
@@ -71,10 +71,10 @@ const ContactForm = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="mail">Mail:</label>
+            <label htmlFor="mail">{lng['mail']}:</label>
             <input
               type="text"
-              placeholder="Enter your email"
+              placeholder={`${lng['enterYour']} ${lng['mail']}`}
               id="mail"
               onChange={handleChange}
               value={mail}
@@ -82,16 +82,16 @@ const ContactForm = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="message">Message:</label>
+            <label htmlFor="message">{lng['message']}:</label>
             <textarea
               id="message"
-              placeholder="Enter your message"
+              placeholder={`${lng['enterYour']} ${lng['message']}`}
               onChange={handleChange}
               value={message}
             ></textarea>
           </div>
 
-          <input type="submit" value="Send Message" />
+          <input type="submit" value={`${lng['send']} ${lng['message']}`} />
         </form>
       </FormDiv>
     </>

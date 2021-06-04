@@ -2,35 +2,37 @@ import React from 'react';
 
 import SkillsCard from '@components/molecules/SkillsCard/SkillsCard';
 
-import { SkillsProps } from '@interfaces/props';
-
 import { SkillsDiv, Title } from './Skills.styles';
+import { useSelector } from 'react-redux';
+import { AppCtx } from '@interfaces/index';
 
-const Skills = ({ introduction, technologiesTxt, backendTxt, reactTxt }: SkillsProps) => {
+const Skills = () => {
+  const { lng } = useSelector((state: AppCtx) => state.database);
+
   return (
     <>
       <Title id="skills-section">
-        <h2 className="title">Skills</h2>
-        <p>{introduction}</p>
+        <h2 className="title">{lng['skills']}</h2>
+        <p>{lng['skillsIntroduction']}</p>
       </Title>
 
       <SkillsDiv>
         <SkillsCard
-          title="other technologies"
+          title={lng['otherTec']}
           image="/static/icons/frameworks.svg"
-          description={technologiesTxt}
+          description={lng['technologiesTxt']}
         />
 
         <SkillsCard
           title="full reactJS developer"
           image="/static/icons/react.svg"
-          description={reactTxt}
+          description={lng['reactTxt']}
         />
 
         <SkillsCard
           title="full backend developer"
           image="/static/icons/backend.svg"
-          description={backendTxt}
+          description={lng['backendTxt']}
         />
       </SkillsDiv>
     </>

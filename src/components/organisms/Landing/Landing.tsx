@@ -12,14 +12,14 @@ import useTyper from '@hooks/useTyper';
 
 import { AbsBlue1, MainZone } from './Landing.styles';
 
-const typerTexts: string[] = [
-  'Full Stack Web Developer',
-  'Passionate about computing and robotics',
-  'Backend and Frontend developer',
-  'Cross-platform software developer',
-];
-
 const Landing = ({ title }: LandingProps) => {
+  const typerTexts: string[] = [
+    'Full Stack Web Developer',
+    'Passionate about computing and robotics',
+    'Backend and Frontend developer',
+    'Cross-platform software developer',
+  ];
+
   const typerRef = useRef(null as null | HTMLSpanElement);
   const barRef = useRef(null as null | HTMLSpanElement);
 
@@ -48,7 +48,7 @@ const Landing = ({ title }: LandingProps) => {
 
           <div className="buttons">
             <a
-              href="https://www.linkedin.com/in/jesús-david-garcía-vargas-3a5a13206"
+              href="https://www.linkedin.com/in/jesús-david-garcía-vargas"
               rel="noreferrer, no follow"
               target="_blank"
               onClick={() => firebase.registerVisitLinkedin()}

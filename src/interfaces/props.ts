@@ -24,13 +24,6 @@ export interface LandingProps {
   title: string;
 }
 
-export interface SkillsProps {
-  introduction: string;
-  technologiesTxt: string;
-  backendTxt: string;
-  reactTxt: string;
-}
-
 export interface LayoutProps {
   title: string;
   children: ReactNode;

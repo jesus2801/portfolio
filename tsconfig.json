@@ -30,7 +30,8 @@
       "@interfaces": ["interfaces/index"],
       "@pages/*": ["pages/*"],
       "@styles/*": ["styles/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@config/*": ["config/*"],
     }
   },
   "exclude": ["node_modules"],

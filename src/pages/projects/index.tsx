@@ -9,13 +9,10 @@ import Layout from '@components/templates/Layout/Layout';
 
 import { AppCtx, ProjectLayout } from '@interfaces';
 
-import { objectError } from '@utils/variables';
-
 import { createRipple } from '@functions/index';
 
 import {
   MainCtn,
-  Ribbon,
   Title,
   Text,
   DeployTxt,
@@ -57,9 +54,6 @@ const Project = () => {
       <>
         <Layout title={`Jesús García's Portfolio | ${project.title}`}>
           <MainCtn>
-            <Ribbon data="/static/images/ribbon.svg" type="image/svg+xml">
-              {objectError}
-            </Ribbon>
             <Title>{project.title}</Title>
             <Text>{project.desc}</Text>
             <YoutubeVideo

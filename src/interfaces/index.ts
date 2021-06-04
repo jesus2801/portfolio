@@ -17,6 +17,7 @@ export interface DatabaseCtx {
   loading: boolean;
   error: boolean;
   projectSelected: null | ProjectLayout;
+  lng: { [k: string]: string };
 }
 
 export interface AppCtx {
@@ -46,3 +47,5 @@ export interface ContactState {
   message: string;
   date: number;
 }
+
+export type AppLngs = 'en' | 'es';

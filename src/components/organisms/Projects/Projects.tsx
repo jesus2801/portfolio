@@ -12,9 +12,7 @@ import { MainGrid, TitleCtn } from './Projects.styles';
 const Projects = () => {
   const dispatch = useDispatch();
 
-  const projects = useSelector((state: AppCtx) => state.database.projects);
-
-  const firebase = useSelector((state: AppCtx) => state.database.firebase);
+  const { firebase, projects, lng } = useSelector((state: AppCtx) => state.database);
 
   useEffect(() => {
     dispatch(getProjects(firebase));
@@ -24,8 +22,8 @@ const Projects = () => {
     <MainGrid id="projects-section">
       <TitleCtn>
         <div>
-          <h2>project list</h2>
-          <p>List of some of the projects that I have developed</p>
+          <h2>{lng['projectList']}</h2>
+          <p>{lng['projectsDesc']}</p>
         </div>
       </TitleCtn>
 

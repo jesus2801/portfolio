@@ -13,9 +13,13 @@ import {
   SUCCESS_SEND_MESSAGE,
   FAILED_GET_PROJECT,
   FAILED_GET_PROJECTS,
+  SET_SELECTED_LNG,
 } from '@context/types';
 
-import { ContactState, ProjectLayout } from '@interfaces';
+import en from '../../locales/en/translation.json';
+import es from '../../locales/es/translation.json';
+
+import { AppLngs, ContactState, ProjectLayout } from '@interfaces';
 
 import { Firebase } from '@firebase';
 
@@ -143,6 +147,18 @@ const succesSendMessage = (): AnyAction => ({
   type: SUCCESS_SEND_MESSAGE,
 });
 
-const failedSendMessage = () => ({
+const failedSendMessage = (): AnyAction => ({
   type: FAILED_SEND_MESSAGE,
+});
+
+export function setSelectedLng(lng: AppLngs) {
+  return (dispatch: Dispatch) => {
+    const cases = { en, es };
+    dispatch(initSetSelectedLng(cases[lng]));
+  };
+}
+
+const initSetSelectedLng = (lng: any): AnyAction => ({
+  type: SET_SELECTED_LNG,
+  payload: lng,
 });

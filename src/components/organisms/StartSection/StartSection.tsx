@@ -10,17 +10,17 @@ import { MainCtn } from './StartSection.styles';
 const StartSection = () => {
   const [start, setStart] = useState(false);
 
-  const isLoading = useSelector((state: AppCtx) => state.database.loading);
+  const { loading, lng } = useSelector((state: AppCtx) => state.database);
 
   useEffect(() => {
-    if (!isLoading) {
+    if (!loading) {
       document.querySelector('.loader')!.classList.add('active');
       setTimeout(() => {
         document.querySelector('.loader')!.classList.add('ocult');
         document.getElementById('start-button')!.classList.add('active');
       }, 450);
     }
-  }, [isLoading]);
+  }, [loading]);
 
   return (
     <>
@@ -59,7 +59,7 @@ const StartSection = () => {
             setStart(true);
           }}
         >
-          Let's Start!
+          {lng['start']}
         </button>
       </MainCtn>
 

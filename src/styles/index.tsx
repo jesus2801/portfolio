@@ -1,24 +1,5 @@
 import styled from '@emotion/styled';
 
-export const Ribbon = styled.object`
-  width: 65px;
-  position: absolute;
-  top: 0;
-  left: 17vw;
-
-  @media (max-width: 850px) {
-    width: 50px;
-  }
-
-  @media (max-width: 610px) {
-    left: 7vw;
-  }
-
-  @media (max-width: 470px) {
-    display: none;
-  }
-`;
-
 export const DeployTxt = styled.div`
   width: 100%;
   display: flex;
@@ -83,7 +64,7 @@ export const Title = styled.h2`
   font-size: 43px;
   text-align: center;
   color: var(--black);
-  margin-top: 40px;
+  margin-top: 20px;
 
   &::after {
     display: block;
