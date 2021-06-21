@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { ArrowDiv } from './ArrowUp.styles';
 
 /**
- * Component adkf afd adf af
+ * Component to 
  * @component
  */
 const ArrowUp = () => {

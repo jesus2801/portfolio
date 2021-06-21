@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import React from 'react';
 
 import StartSection from '@components/organisms/StartSection/StartSection';
@@ -9,16 +10,16 @@ import Skills from '@components/organisms/Skills/Skills';
 import Footer from '@components/molecules/Footer/Footer';
 import Layout from '@components/templates/Layout/Layout';
 import ArrowUp from '@components/atoms/ArrowUp/ArrowUp';
-import Nav from '@components/molecules/Nav/Nav';
-import { useSelector } from 'react-redux';
-import { AppCtx } from '@interfaces/index';
 import Flags from '@components/atoms/Flags/Flags';
+import Nav from '@components/molecules/Nav/Nav';
+
+import { AppCtx } from '@interfaces/index';
 
 const Index = () => {
   const { lng } = useSelector((state: AppCtx) => state.database);
 
   return (
-    <Layout title="Jesús García's Portfolio | Full Stack Web Developer">
+    <Layout title={lng['title']}>
       <Flags />
       <Nav />
       <StartSection />

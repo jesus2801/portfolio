@@ -21,5 +21,12 @@
   "message": "Message",
   "enterYour": "Enter Your",
   "send": "Send",
-  "copy": "All rights reserved"
+  "copy": "All rights reserved",
+  "title": "Jesús García's Portfolio | Full Stack Web Developer",
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "projects": "projects",
+    "contact": "Contact Me"
+  }
 }

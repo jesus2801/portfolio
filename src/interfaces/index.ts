@@ -17,7 +17,8 @@ export interface DatabaseCtx {
   loading: boolean;
   error: boolean;
   projectSelected: null | ProjectLayout;
-  lng: { [k: string]: string };
+  // lng: { [k: string]: string | { [k: string]: string } };
+  lng: any;
 }
 
 export interface AppCtx {
