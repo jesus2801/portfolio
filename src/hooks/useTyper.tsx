@@ -16,7 +16,7 @@ const useTyper = (typerTexts: string[], p: HTMLSpanElement, bar: HTMLSpanElement
     //set interval
     const interval = setInterval(() => {
       //add letter
-      p.innerText += typerTexts[arrayIndex][count];
+      p.innerText = typerTexts[arrayIndex].slice(0, count + 1);
 
       //if the word is finished printing
       if (count === textLength) {
