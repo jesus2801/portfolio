@@ -15,7 +15,7 @@ const Layout = ({ children, title }: LayoutProps) => {
   application development, programming, React, Next JS, Gatsby, libraries 
   and frameworks`;
 
-  const firebase = useSelector((state: AppCtx) => state.database.firebase);
+  const { firebase } = useSelector((state: AppCtx) => state.database);
 
   useEffect(() => {
     firebase.registerVisit(window.location.href);

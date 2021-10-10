@@ -29,7 +29,7 @@ const Landing = ({ title }: LandingProps) => {
     }
   }, [typerRef, barRef]);
 
-  const firebase = useSelector((state: AppCtx) => state.database.firebase);
+  const { firebase } = useSelector((state: AppCtx) => state.database);
 
   return (
     <>
