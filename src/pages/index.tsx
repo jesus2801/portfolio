@@ -10,6 +10,7 @@ import Skills from '@components/organisms/Skills/Skills';
 import Footer from '@components/molecules/Footer/Footer';
 import Layout from '@components/templates/Layout/Layout';
 import ArrowUp from '@components/atoms/ArrowUp/ArrowUp';
+import Stories from '@components/organisms/stories';
 import Flags from '@components/atoms/Flags/Flags';
 import Nav from '@components/molecules/Nav/Nav';
 
@@ -29,6 +30,8 @@ const Index = () => {
       <AboutSection life={lng['lifeText']} knowledge={lng['knowledgeText']} />
 
       <Skills />
+
+      <Stories />
 
       <Projects />
 
