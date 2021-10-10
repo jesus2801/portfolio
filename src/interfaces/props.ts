@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { ProjectLayout } from '.';
+import fb from 'firebase/app';
 
 export interface SweptProps {
   start: boolean;
@@ -27,4 +28,8 @@ export interface LandingProps {
 export interface LayoutProps {
   title: string;
   children: ReactNode;
+}
+
+export interface StoryProps {
+  reference: fb.storage.Reference;
 }

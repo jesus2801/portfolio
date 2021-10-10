@@ -5,10 +5,12 @@ import config from './config';
 
 import 'firebase/firestore';
 import 'firebase/analytics';
+import 'firebase/storage';
 
 export class Firebase {
   public db: app.firestore.Firestore;
   public analytics: app.analytics.Analytics | undefined;
+  public storage: app.storage.Storage;
 
   constructor() {
     // Initialize Firebase
@@ -18,6 +20,7 @@ export class Firebase {
     }
 
     this.db = app.firestore();
+    this.storage = app.storage();
   }
 
   public registerVisit(path: string) {
