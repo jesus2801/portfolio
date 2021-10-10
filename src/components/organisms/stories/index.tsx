@@ -1,10 +1,16 @@
 import React from 'react';
 
+import { StoriesDiv } from './styles';
+
 const index = () => {
   return (
-    <div>
-      <h1>stories</h1>
-    </div>
+    <StoriesDiv>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </StoriesDiv>
   );
 };
 
