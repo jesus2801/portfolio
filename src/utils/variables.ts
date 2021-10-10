@@ -18,4 +18,4 @@ export const linkTags = [
   },
 ];
 
-export const objectError = 'Your browser not support objects';
+export const objectError = "Your browser don't support objects";
