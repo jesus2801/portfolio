@@ -1,16 +1,21 @@
 import styled from '@emotion/styled';
 
 export const StoriesDiv = styled.div`
-  width: 90%;
+  width: 60%;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  column-gap: 20px;
+
+  @media (max-width: 800px) {
+    width: 80%;
+  }
+
+  @media (max-width: 800px) {
+    width: 98%;
+  }
 `;
 
 export const StoriesTitle = styled.div`
   width: fit-content;
-  margin: 100px auto 0 auto;
+  margin: 100px auto 30px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,5 +24,6 @@ export const StoriesTitle = styled.div`
   p {
     color: var(--black);
     max-width: 400px;
+    text-align: center;
   }
 `;

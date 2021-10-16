@@ -13,13 +13,11 @@ const index = ({ reference }: StoryProps) => {
   }, []);
 
   return (
-    <StoryDiv>
-      <video
-        src={url}
-        controls={true}
-        poster={`/static/stories-preview/${reference.name.split('.')[0]}.png`}
-      ></video>
-    </StoryDiv>
+    <StoryDiv
+      src={url}
+      controls={true}
+      poster={`/static/stories-preview/${reference.name.split('.')[0]}.png`}
+    ></StoryDiv>
   );
 };
 

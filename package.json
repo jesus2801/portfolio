@@ -27,7 +27,8 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "sass": "^1.32.8",
-    "sweetalert2": "^10.15.6"
+    "sweetalert2": "^10.15.6",
+    "swiper": "^6.8.4"
   },
   "devDependencies": {
     "@types/detect-node": "^2.0.0",

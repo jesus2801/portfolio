@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import fb from 'firebase/app';
+import SwiperCore, { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import Story from '@components/atoms/story';
 
 import { AppCtx } from '@interfaces/index';
 
 import { StoriesDiv, StoriesTitle } from './styles';
+
+SwiperCore.use([Pagination, Navigation]);
 
 const index = () => {
   const { firebase, lng } = useSelector((state: AppCtx) => state.database);
@@ -29,9 +33,21 @@ const index = () => {
         <p>{lng['storiesDesc']}</p>
       </StoriesTitle>
       <StoriesDiv>
-        {videos.map((reference) => (
-          <Story key={reference.name} reference={reference} />
-        ))}
+        <Swiper
+          pagination={{ clickable: true, dynamicBullets: true }}
+          navigation
+          spaceBetween={50}
+          slidesPerView={1}
+        >
+          {videos.map((reference) => (
+            <SwiperSlide
+              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+              key={reference.name}
+            >
+              <Story reference={reference} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </StoriesDiv>
     </>
   );
