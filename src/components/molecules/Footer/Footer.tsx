@@ -6,7 +6,7 @@ import { FooterDiv } from './Footer.styles';
 
 const Footer = () => {
   const { lng } = useSelector((state: AppCtx) => state.database);
-
+ 
   return (
     <FooterDiv>
       <p>
