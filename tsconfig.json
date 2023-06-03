@@ -7,7 +7,10 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "lib": ["dom", "es2017"],
+    "lib": [
+      "dom",
+      "es2017"
+    ],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -19,21 +22,53 @@
     "strict": true,
     "target": "esnext",
     "paths": {
-      "@components/*": ["components/*"],
-      "@context/*": ["context/*"],
-      "@firebase/*": ["firebase/*"],
-      "@firebase": ["firebase"],
-      "@functions/*": ["functions/*"],
-      "@functions": ["functions"],
-      "@hooks/*": ["hooks/*"],
-      "@interfaces/*": ["interfaces/*"],
-      "@interfaces": ["interfaces/index"],
-      "@pages/*": ["pages/*"],
-      "@styles/*": ["styles/*"],
-      "@utils/*": ["utils/*"],
-      "@config/*": ["config/*"],
-    }
+      "@components/*": [
+        "components/*"
+      ],
+      "@context/*": [
+        "context/*"
+      ],
+      "@firebase/*": [
+        "firebase/*"
+      ],
+      "@firebase": [
+        "firebase"
+      ],
+      "@functions/*": [
+        "functions/*"
+      ],
+      "@functions": [
+        "functions"
+      ],
+      "@hooks/*": [
+        "hooks/*"
+      ],
+      "@interfaces/*": [
+        "interfaces/*"
+      ],
+      "@interfaces": [
+        "interfaces/index"
+      ],
+      "@pages/*": [
+        "pages/*"
+      ],
+      "@styles/*": [
+        "styles/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ],
+      "@config/*": [
+        "config/*"
+      ]
+    },
+    "incremental": true
   },
-  "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx"]
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }

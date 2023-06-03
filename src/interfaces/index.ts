@@ -40,8 +40,6 @@ export interface ProjectLayout extends Project {
   id: string;
 }
 
-export interface ProjectDoc extends firebase.firestore.DocumentSnapshot<Project> {}
-
 export interface ContactState {
   name: string;
   mail: string;

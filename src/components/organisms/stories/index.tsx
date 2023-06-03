@@ -9,18 +9,18 @@ import Story from '@components/atoms/story';
 import { AppCtx } from '@interfaces/index';
 
 import { StoriesDiv, StoriesTitle } from './styles';
+import { StorageReference, listAll, ref } from 'firebase/storage';
 
 SwiperCore.use([Pagination, Navigation]);
 
 const index = () => {
   const { firebase, lng } = useSelector((state: AppCtx) => state.database);
 
-  const [videos, setVideos] = useState([] as fb.storage.Reference[]);
+  const [videos, setVideos] = useState([] as StorageReference[]);
 
   useEffect(() => {
-    firebase.storage
-      .ref('stories')
-      .listAll()
+    const r = ref(firebase.storage, 'stories')
+      listAll(r)
       .then((results) => {
         setVideos(results.items);
       });

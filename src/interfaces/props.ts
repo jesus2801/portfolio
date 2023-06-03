@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import { ProjectLayout } from '.';
 import fb from 'firebase/app';
+import { StorageReference } from 'firebase/storage';
 
 export interface SweptProps {
   start: boolean;
@@ -31,5 +32,5 @@ export interface LayoutProps {
 }
 
 export interface StoryProps {
-  reference: fb.storage.Reference;
+  reference: StorageReference;
 }

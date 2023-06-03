@@ -48,7 +48,7 @@ const Landing = ({ title }: LandingProps) => {
 
           <div className="buttons">
             <a
-              href="https://www.linkedin.com/in/jesús-david-garcía-vargas"
+              href="https://www.linkedin.com/in/jesus-garcia-vargas/"
               rel="noreferrer, no follow"
               target="_blank"
               onClick={() => firebase.registerVisitLinkedin()}

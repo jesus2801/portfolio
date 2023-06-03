@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 
 import { StoryProps } from '@interfaces/props';
 import { StoryDiv } from './styles';
+import { getDownloadURL } from 'firebase/storage';
 
 const index = ({ reference }: StoryProps) => {
   const [url, setUrl] = useState('');
 
   useEffect(() => {
-    reference.getDownloadURL().then((downloadUrl) => {
+    getDownloadURL(reference).then((downloadUrl) => {
       setUrl(downloadUrl);
     });
   }, []);

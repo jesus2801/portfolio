@@ -24,13 +24,15 @@ import { AppLngs, ContactState, ProjectLayout } from '@interfaces';
 import { Firebase } from '@firebase';
 
 import { handleLoading } from '@functions';
+import { collection, doc, getDoc, getDocs, orderBy, query, setDoc } from 'firebase/firestore';
 
 export function getProjects(firebase: Firebase) {
   return async (dispatch: Dispatch) => {
     dispatch(initGetProjects());
 
     try {
-      const snapshot = await firebase.db.collection('projects').orderBy('order', 'asc').get();
+      //const snapshot = await firebase.db.collection('projects').orderBy('order', 'asc').get();
+      const snapshot = await getDocs(query(collection(firebase.db, "projects"), orderBy('order', 'asc')));
 
       const projects: any = snapshot.docs.map((doc) => {
         return {
@@ -79,16 +81,16 @@ export function getProject(id: string, firebase: Firebase) {
     dispatch(initGetProject());
 
     try {
-      const project = await firebase.db.collection('projects').doc(id).get();
+      //const project = await firebase.db.collection('projects').doc(id).get();
+      const project = await getDoc(doc(firebase.db, "projects", id));
 
-      if (project.exists) {
+      if (project.exists()) {
         dispatch(setProject(project.data() as ProjectLayout));
         dispatch(successGetProject());
       } else {
         dispatch(failedGetProject());
       }
       handleLoading(false);
-      return;
     } catch (e) {
       handleLoading(false);
       dispatch(failedGetProject());
@@ -127,7 +129,8 @@ export function sendMessage(message: ContactState, firebase: Firebase) {
     dispatch(initSendMessage());
 
     try {
-      await firebase.db.collection('messages').add(message);
+      //await firebase.db.collection('messages').add(message);
+      await setDoc(doc(firebase.db, "messages"), message);
 
       dispatch(succesSendMessage());
       handleLoading(false);
